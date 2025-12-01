@@ -1,8 +1,17 @@
-export const STARTUP_PROJECT_DATA = [
+import { getStartupStatus } from "@/lib/project-utils";
+import type { StartupProject } from "@/types/startup-project";
+
+export const STARTUP_PROJECT: StartupProject[] = [
   {
     id: 1,
     title: "Startup Project Title 1",
-    status: "MVP 개발 완료" as const, // "MVP 개발 완료" | "PMF 검증 완료" | "중단"
+    period: {
+      start: "2024.01",
+      end: null, // null이면 진행중
+    },
+    get status() {
+      return getStartupStatus(this.period.start, this.period.end);
+    },
     summary:
       "프로젝트의 핵심 내용을 2~3문장으로 요약합니다. 어떤 문제를 해결하고, 어떤 가치를 제공하는지 간단히 설명합니다.",
     links: {
@@ -57,4 +66,4 @@ export const STARTUP_PROJECT_DATA = [
       { question: "자주 묻는 질문 2", answer: "답변 2" },
     ],
   },
-] as const;
+];

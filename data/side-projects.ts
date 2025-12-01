@@ -1,8 +1,17 @@
-export const SIDE_PROJECT_DATA = [
+import { getSideStatus } from "@/lib/project-utils";
+import type { SideProject } from "@/types/side-project";
+
+export const SIDE_PROJECT: SideProject[] = [
   {
     id: 1,
     title: "Side Project Title 1",
-    status: "진행중" as const, // "진행중" | "완료"
+    period: {
+      start: "2024.01",
+      end: null, // null이면 진행중
+    },
+    get status() {
+      return getSideStatus(this.period.end);
+    },
     links: {
       web: "",
       ios: "",
@@ -18,7 +27,13 @@ export const SIDE_PROJECT_DATA = [
   {
     id: 2,
     title: "Side Project Title 2",
-    status: "완료" as const, // "진행중" | "완료"
+    period: {
+      start: "2023.06",
+      end: "2023.12",
+    },
+    get status() {
+      return getSideStatus(this.period.end);
+    },
     links: {
       web: "",
       ios: "",
@@ -31,4 +46,4 @@ export const SIDE_PROJECT_DATA = [
     features: "핵심 기능 설명.",
     result: "프로젝트 결과 및 학습 내용.",
   },
-] as const;
+];

@@ -51,7 +51,12 @@ const Projects = () => {
             <Card key={project.id} id={`project-${project.id}`}>
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-2xl">{project.title}</CardTitle>
+                  <div>
+                    <CardTitle className="text-2xl">{project.title}</CardTitle>
+                    <p className="text-sm text-gray-500 mt-1">
+                      {project.period.start} ~ {project.period.end || "진행중"}
+                    </p>
+                  </div>
                   <span
                     className={`px-3 py-1 rounded-full text-sm font-semibold ${
                       project.status === "MVP 개발 완료"
@@ -255,7 +260,12 @@ const Projects = () => {
             <Card key={index}>
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle>{project.title}</CardTitle>
+                  <div>
+                    <CardTitle>{project.title}</CardTitle>
+                    <p className="text-sm text-gray-500 mt-1">
+                      {project.period.start} ~ {project.period.end || "진행중"}
+                    </p>
+                  </div>
                   <span
                     className={`px-3 py-1 rounded-full text-sm font-semibold ${
                       project.status === "진행중"

@@ -1,4 +1,6 @@
-export const OPEN_SOURCE_PROJECT_DATA = [
+import type { OpenSourceProject } from "@/types/opensource-project";
+
+export const OPENSOURCE_PROJECT: OpenSourceProject[] = [
   {
     id: 1,
     title: "My Library Name",
@@ -21,4 +23,4 @@ export const OPEN_SOURCE_PROJECT_DATA = [
       github: "#",
     },
   },
-] as const;
+];
