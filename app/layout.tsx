@@ -1,5 +1,6 @@
 import { InitEventTracker } from "@/amplitude/InitEventTracker";
 import { Navigation } from "@/components/Navigation";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -45,6 +46,7 @@ export default function RootLayout({
         <InitEventTracker />
         <Navigation />
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );
