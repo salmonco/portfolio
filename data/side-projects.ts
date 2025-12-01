@@ -12,6 +12,7 @@ export const SIDE_PROJECT: SideProject[] = [
     get status() {
       return getSideStatus(this.period.end);
     },
+    techStack: ["React", "Node.js"],
     links: {
       web: "",
       ios: "",
@@ -34,6 +35,7 @@ export const SIDE_PROJECT: SideProject[] = [
     get status() {
       return getSideStatus(this.period.end);
     },
+    techStack: ["Vue.js", "Python"],
     links: {
       web: "",
       ios: "",

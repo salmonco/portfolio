@@ -5,6 +5,7 @@ export const OPENSOURCE_PROJECT: OpenSourceProject[] = [
     id: 1,
     title: "My Library Name",
     description: "직접 만든 라이브러리에 대한 설명.",
+    techStack: ["TypeScript", "JavaScript"],
     links: {
       web: "",
       ios: "",
@@ -16,6 +17,7 @@ export const OPENSOURCE_PROJECT: OpenSourceProject[] = [
     id: 2,
     title: "Contributed Project Name",
     description: "기여한 오픈소스 프로젝트 설명.",
+    techStack: ["Go", "Docker"],
     links: {
       web: "",
       ios: "",

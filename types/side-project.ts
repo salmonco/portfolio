@@ -8,6 +8,7 @@ export interface SideProject {
     end: string | null;
   };
   status: SideStatus;
+  techStack: string[];
   links: {
     web: string;
     ios: string;

@@ -14,6 +14,7 @@ export const STARTUP_PROJECT: StartupProject[] = [
     },
     summary:
       "프로젝트의 핵심 내용을 2~3문장으로 요약합니다. 어떤 문제를 해결하고, 어떤 가치를 제공하는지 간단히 설명합니다.",
+    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     links: {
       web: "https://example.com",
       ios: "",

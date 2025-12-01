@@ -114,6 +114,16 @@ const Projects = () => {
                 <CardDescription className="text-base mt-2">
                   {project.summary}
                 </CardDescription>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {project.techStack.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </CardHeader>
               <CardContent>
                 <button
@@ -318,6 +328,16 @@ const Projects = () => {
                     </a>
                   )}
                 </div>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {project.techStack.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </CardHeader>
               <CardContent>
                 <p className="mb-1">
@@ -396,6 +416,16 @@ const Projects = () => {
                       💻 GitHub
                     </a>
                   )}
+                </div>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {project.techStack.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </CardHeader>
               <CardContent>

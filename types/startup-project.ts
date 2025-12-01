@@ -9,6 +9,7 @@ export interface StartupProject {
   };
   status: StartupStatus;
   summary: string;
+  techStack: string[];
   links: {
     web: string;
     ios: string;
