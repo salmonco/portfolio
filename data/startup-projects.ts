@@ -133,7 +133,7 @@ export const STARTUP_PROJECT: StartupProject[] = [
       web: "https://slashpage.com/recipflash",
       ios: "https://apps.apple.com/kr/app/%EB%A0%88%EC%8B%9C%ED%94%BC-%EC%99%B8%EC%9A%B0%EA%B8%B0/id6755034677",
       android: "",
-      github: "",
+      github: "https://github.com/salmonco/recipflash",
     },
     purpose: "레시피 외우기 게임을 소개한다.",
     background:
