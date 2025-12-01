@@ -19,12 +19,22 @@ export function OpenSourceProjectCard({ project }: Props) {
       <CardHeader className="space-y-3">
         <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
         <ProjectLinks links={project.links} />
+        <CardDescription className="text-sm">{project.summary}</CardDescription>
+        {project.achievements.length > 0 && (
+          <div>
+            <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-muted-foreground">
+              {project.achievements.map((achievement, idx) => (
+                <li key={idx}>{achievement}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <TechStackTags techStack={project.techStack} />
       </CardHeader>
       <CardContent className="flex-1">
-        <CardDescription className="text-sm">
+        <p className="text-xs sm:text-sm text-muted-foreground">
           {project.description}
-        </CardDescription>
+        </p>
       </CardContent>
     </Card>
   );

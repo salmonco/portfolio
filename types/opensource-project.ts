@@ -1,7 +1,9 @@
 export interface OpenSourceProject {
   id: number;
   title: string;
+  summary: string;
   description: string;
+  achievements: string[];
   techStack: string[];
   links: {
     web: string;
