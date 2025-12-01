@@ -2,7 +2,7 @@ export const VELOG_USERNAME = "salmonco";
 export const VELOG_POST_LIMIT = 3;
 
 export const CONTACT_URL = {
-  email: "qhdwltn@gmail.com",
+  email: "qhdwltn1380@gmail.com",
   github: "https://github.com/salmonco",
   linkedin: "https://www.linkedin.com/in/jisu-bong",
 } as const;
