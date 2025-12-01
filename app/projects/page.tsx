@@ -9,13 +9,26 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { PROJECT_DATA } from "@/data/projects";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Projects = () => {
   const [expandedProjects, setExpandedProjects] = useState<
     Record<number, boolean>
   >({});
   const [expandedFaqs, setExpandedFaqs] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.replace("#project-", "");
+      setTimeout(() => {
+        setExpandedProjects({ [Number(id)]: true });
+        document
+          .querySelector(hash)
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 0);
+    }
+  }, []);
 
   const toggleProject = (id: number) => {
     setExpandedProjects((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -35,7 +48,7 @@ const Projects = () => {
         </h2>
         <div className="space-y-12">
           {PROJECT_DATA.startup.map((project) => (
-            <Card key={project.id}>
+            <Card key={project.id} id={`project-${project.id}`}>
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-2xl">{project.title}</CardTitle>

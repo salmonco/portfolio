@@ -32,16 +32,18 @@ const Home = async () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {HOME_DATA.mainProjects.map((project) => (
-            <Card key={project.id}>
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">{project.description}</p>
-              </CardContent>
-              <CardFooter>{/* Optional: Add links or actions */}</CardFooter>
-            </Card>
+            <Link key={project.id} href={`/projects#project-${project.id}`}>
+              <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
+                <CardHeader>
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-600">{project.description}</p>
+                </CardContent>
+                <CardFooter>{/* Optional: Add links or actions */}</CardFooter>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>
