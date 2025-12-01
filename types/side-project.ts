@@ -16,7 +16,6 @@ export interface SideProject {
     github: string;
   };
   purpose: string;
-  tech: string;
   role: string;
   features: string;
   result: string;

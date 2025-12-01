@@ -41,12 +41,6 @@ export function SideProjectCard({ project }: Props) {
           </span>
         </div>
         <div>
-          <span className="font-semibold text-sm">사용 기술:</span>
-          <span className="text-sm text-muted-foreground ml-2">
-            {project.tech}
-          </span>
-        </div>
-        <div>
           <span className="font-semibold text-sm">역할:</span>
           <span className="text-sm text-muted-foreground ml-2">
             {project.role}
