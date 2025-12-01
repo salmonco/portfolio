@@ -52,6 +52,15 @@ export function StartupProjectCard({ project }: Props) {
         <CardDescription className="text-sm sm:text-base">
           {project.summary}
         </CardDescription>
+        {project.achievements.length > 0 && (
+          <div className="mt-2">
+            <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-muted-foreground">
+              {project.achievements.map((achievement, idx) => (
+                <li key={idx}>{achievement}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <TechStackTags techStack={project.techStack} />
       </CardHeader>
       <CardContent className="space-y-4">

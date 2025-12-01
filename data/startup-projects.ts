@@ -9,8 +9,13 @@ export const STARTUP_PROJECT: StartupProject[] = [
       end: null,
     },
     status: "MVP 개발 중",
-    summary:
-      "동아리 임원진을 위한 동아리 관리 자동화 SaaS. 캡스톤디자인 최우수상(1위), BM 경진대회 수상, 특허 출원. 물품 관리, 활동 관리, 신규 회원 관리, 회원 관리 기능을 제공합니다.",
+    summary: "동아리 임원진을 위한 동아리 관리 자동화 SaaS",
+    achievements: [
+      "2024-2 AJOU SOFTCON 캡스톤디자인 개발부문 최우수상(1위)",
+      "BM 경진대회 수상",
+      "동아리 관리 시스템 특허 출원",
+      "랜딩페이지 사전등록 1명 유치",
+    ],
     techStack: [
       "TypeScript",
       "React",
@@ -111,8 +116,8 @@ export const STARTUP_PROJECT: StartupProject[] = [
       end: null,
     },
     status: "MVP 개발 완료",
-    summary:
-      "알바생을 위한 레시피 암기 앱. PDF 업로드만으로 AI가 자동으로 플래시카드를 생성하고, 게임처럼 재미있게 레시피를 외울 수 있습니다. 출시 후 15명의 사용자를 유치했습니다.",
+    summary: "알바생을 위한 레시피 암기 앱",
+    achievements: ["출시 후 15명의 사용자 유치"],
     techStack: [
       "TypeScript",
       "React Native",
@@ -196,8 +201,12 @@ export const STARTUP_PROJECT: StartupProject[] = [
       end: "2025.08",
     },
     status: "중단",
-    summary:
-      "자립준비청년을 위한 목소리 봉사 플랫폼. 해커톤 수상 후 2,500명 중 22명이 앱을 설치했으며, 7일차 리텐션 17%를 기록했습니다.",
+    summary: "자립준비청년을 위한 목소리 봉사 플랫폼",
+    achievements: [
+      "해커톤 수상",
+      "자준청 2,500명 중 22명 앱 설치",
+      "7일차 리텐션 17% 기록",
+    ],
     techStack: ["TypeScript", "React Native", "React-Query", "TailwindCSS"],
     links: {
       web: "",
