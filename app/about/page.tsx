@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BLOG_URL, CONTACT_URL } from "@/lib/constants";
+import { BLOG_URL, CONTACT_URL } from "@/data/contact";
 
 const About = () => {
   return (

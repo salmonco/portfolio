@@ -6,23 +6,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { BLOG_URL } from "@/lib/constants";
-import { VelogPost } from "@/velog/types";
-import { truncateDescription } from "@/velog/truncateDescription";
+import { BLOG_URL, VELOG_USERNAME } from "@/data/contact";
+import { HOME_DATA } from "@/data/home";
 import { getVelogPosts } from "@/velog/getVelogPosts";
+import { truncateDescription } from "@/velog/truncateDescription";
+import { VelogPost } from "@/velog/types";
 import Image from "next/image";
 import Link from "next/link";
 
 const Home = async () => {
-  const velogUsername = "salmonco";
-  const posts: VelogPost[] = await getVelogPosts(velogUsername);
+  const posts: VelogPost[] = await getVelogPosts(VELOG_USERNAME);
 
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       {/* Branding One-message */}
       <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4">안녕하세요</h1>
-        <p className="text-xl text-gray-700">설명</p>
+        <h1 className="text-5xl font-bold mb-4">{HOME_DATA.hero.title}</h1>
+        <p className="text-xl text-gray-700">{HOME_DATA.hero.description}</p>
       </section>
 
       {/* Representative Startup Projects */}
@@ -31,43 +31,18 @@ const Home = async () => {
           Main Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>Startup Project 1</CardTitle>
-              <CardDescription>
-                혁신적인 아이디어로 시장을 선도합니다.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {/* More details will go here */}
-              <p className="text-sm text-gray-600">간단한 프로젝트 설명...</p>
-            </CardContent>
-            <CardFooter>{/* Optional: Add links or actions */}</CardFooter>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Startup Project 2</CardTitle>
-              <CardDescription>
-                사용자 경험을 최우선으로 생각합니다.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {/* More details will go here */}
-              <p className="text-sm text-gray-600">간단한 프로젝트 설명...</p>
-            </CardContent>
-            <CardFooter>{/* Optional: Add links or actions */}</CardFooter>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Startup Project 3</CardTitle>
-              <CardDescription>기술과 디자인의 완벽한 조화.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              {/* More details will go here */}
-              <p className="text-sm text-gray-600">간단한 프로젝트 설명...</p>
-            </CardContent>
-            <CardFooter>{/* Optional: Add links or actions */}</CardFooter>
-          </Card>
+          {HOME_DATA.mainProjects.map((project) => (
+            <Card key={project.id}>
+              <CardHeader>
+                <CardTitle>{project.title}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">{project.description}</p>
+              </CardContent>
+              <CardFooter>{/* Optional: Add links or actions */}</CardFooter>
+            </Card>
+          ))}
         </div>
       </section>
 
