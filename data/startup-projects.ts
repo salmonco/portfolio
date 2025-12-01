@@ -25,10 +25,10 @@ export const STARTUP_PROJECT: StartupProject[] = [
       "AWS",
     ],
     links: {
-      web: "https://www.woohakdong.com/",
+      web: "https://www.woohakdong.com",
       ios: "",
       android: "",
-      github: "https://github.com/team8901/woohakdong-web",
+      github: "https://github.com/team8901/woohakdong-frontend",
     },
     purpose:
       "동아리 임원진을 위한 동아리 관리 자동화 SaaS 우학동을 소개한다. 본 문서를 통해 해당 기능이 왜 필요한지, 어떤 고객 가치를 제공하는지, 그리고 개발 우선순위와 목표 지표가 무엇인지 빠르게 파악할 수 있다.",
