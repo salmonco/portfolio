@@ -1,4 +1,8 @@
-export type StartupStatus = "MVP 개발 완료" | "PMF 검증 완료" | "중단";
+export type StartupStatus =
+  | "MVP 개발 중"
+  | "MVP 개발 완료"
+  | "PMF 검증 완료"
+  | "중단";
 
 export interface StartupProject {
   id: number;

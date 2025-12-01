@@ -1,4 +1,3 @@
-import { getStartupStatus } from "@/lib/project-utils";
 import type { StartupProject } from "@/types/startup-project";
 
 export const STARTUP_PROJECT: StartupProject[] = [
@@ -9,9 +8,7 @@ export const STARTUP_PROJECT: StartupProject[] = [
       start: "2024.09",
       end: null,
     },
-    get status() {
-      return getStartupStatus(this.period.start, this.period.end);
-    },
+    status: "MVP 개발 중",
     summary:
       "동아리 임원진을 위한 동아리 관리 자동화 SaaS. 캡스톤디자인 최우수상(1위), BM 경진대회 수상, 특허 출원. 물품 관리, 활동 관리, 신규 회원 관리, 회원 관리 기능을 제공합니다.",
     techStack: [
@@ -113,9 +110,7 @@ export const STARTUP_PROJECT: StartupProject[] = [
       start: "2025.11",
       end: null,
     },
-    get status() {
-      return getStartupStatus(this.period.start, this.period.end);
-    },
+    status: "MVP 개발 완료",
     summary:
       "알바생을 위한 레시피 암기 앱. PDF 업로드만으로 AI가 자동으로 플래시카드를 생성하고, 게임처럼 재미있게 레시피를 외울 수 있습니다. 출시 후 15명의 사용자를 유치했습니다.",
     techStack: [
@@ -200,9 +195,7 @@ export const STARTUP_PROJECT: StartupProject[] = [
       start: "2024.11",
       end: "2025.08",
     },
-    get status() {
-      return getStartupStatus(this.period.start, this.period.end);
-    },
+    status: "중단",
     summary:
       "자립준비청년을 위한 목소리 봉사 플랫폼. 해커톤 수상 후 2,500명 중 22명이 앱을 설치했으며, 7일차 리텐션 17%를 기록했습니다.",
     techStack: ["TypeScript", "React Native", "React-Query", "TailwindCSS"],
