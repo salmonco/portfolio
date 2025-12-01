@@ -43,8 +43,33 @@ export const CAREER_DATA = [
   },
   {
     id: 2,
+    company: "인스타페이",
+    position: "현장실습",
+    period: "2023.12 ~ 2024.02",
+    description: "사내 직원들이 사용하는 설문조사 폼 관리 시스템 개발·유지보수",
+    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap 5", "Firebase"],
+    projects: [
+      {
+        title: "설문조사 폼 관리 시스템",
+        period: "2023.12 ~ 2024.02",
+        description: "사내 직원용 설문조사 폼 관리 시스템 개발 및 유지보수",
+        tasks: [
+          "반응형 웹 개발에 100% 기여",
+          "3주 만에 핵심 기능을 포함한 MVP 웹사이트 출시",
+          "이후 20개 피드백을 반영한 지속적 업데이트 수행",
+        ],
+        achievements: [
+          "설문의 커스텀 자유도와 복잡도 사이의 trade-off를 고려한 UX 개선",
+        ],
+      },
+    ],
+    activities: [],
+    team: "서비스기획팀",
+  },
+  {
+    id: 3,
     company: "그린월드",
-    position: "현장실습 연구원",
+    position: "현장실습",
     period: "2024.07 ~ 2024.08",
     description: "밸브 관개를 원격으로 제어하는 대시보드 SaaS 개발",
     techStack: ["TypeScript", "React", "WebSocket"],

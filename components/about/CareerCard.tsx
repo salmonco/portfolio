@@ -115,16 +115,18 @@ export function CareerCard({ career }: CareerProps) {
             </div>
 
             {/* Activities */}
-            <div className="space-y-2">
-              <h3 className="font-semibold text-base sm:text-lg">
-                기술 공유 활동
-              </h3>
-              <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-muted-foreground">
-                {career.activities.map((activity, idx) => (
-                  <li key={idx}>{activity}</li>
-                ))}
-              </ul>
-            </div>
+            {career.activities.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="font-semibold text-base sm:text-lg">
+                  기술 공유 활동
+                </h3>
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-muted-foreground">
+                  {career.activities.map((activity, idx) => (
+                    <li key={idx}>{activity}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         )}
       </CardContent>
