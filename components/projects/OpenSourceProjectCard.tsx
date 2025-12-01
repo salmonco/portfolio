@@ -17,7 +17,7 @@ export function OpenSourceProjectCard({ project }: Props) {
   return (
     <Card className="h-full flex flex-col">
       <CardHeader className="space-y-3">
-        <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
+        <CardTitle className="text-sm sm:text-base">{project.title}</CardTitle>
         <ProjectLinks links={project.links} />
         <CardDescription className="text-sm">{project.summary}</CardDescription>
         {project.achievements.length > 0 && (

@@ -19,7 +19,7 @@ export function SideProjectCard({ project }: Props) {
       <CardHeader className="space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
           <div className="flex-1 min-w-0">
-            <CardTitle className="text-lg sm:text-xl mb-2">
+            <CardTitle className="text-sm sm:text-base mb-2">
               {project.title}
             </CardTitle>
             <p className="text-xs sm:text-sm text-muted-foreground">

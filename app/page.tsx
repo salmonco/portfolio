@@ -21,7 +21,7 @@ const Home = async () => {
     <main className="container mx-auto px-6 py-12 sm:px-12 sm:py-16 lg:px-24 lg:py-20 max-w-4xl">
       {/* Hero Section */}
       <section className="mb-16 sm:mb-20 lg:mb-24">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-3 leading-relaxed">
+        <h1 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-3 leading-relaxed">
           {HOME_DATA.hero.title}
         </h1>
         {HOME_DATA.hero.slogan && (

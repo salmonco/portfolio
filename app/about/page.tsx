@@ -14,13 +14,9 @@ import {
 const About = () => {
   return (
     <main className="container mx-auto px-6 py-12 sm:px-12 sm:py-16 lg:px-24 lg:py-20 max-w-4xl">
-      <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-12 sm:mb-16 leading-relaxed">
-        About
-      </h1>
-
       {/* Career */}
       <section className="w-full mb-16 sm:mb-20 lg:mb-24">
-        <h2 className="text-lg sm:text-xl font-semibold mb-6 border-b pb-2">
+        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           Career
         </h2>
         <div className="space-y-0">
@@ -32,7 +28,7 @@ const About = () => {
 
       {/* Blog */}
       <section className="w-full mb-16 sm:mb-20 lg:mb-24">
-        <h2 className="text-lg sm:text-xl font-semibold mb-6 border-b pb-2">
+        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           Blog
         </h2>
         <div className="flex flex-wrap gap-2">
@@ -74,7 +70,7 @@ const About = () => {
 
       {/* Contact */}
       <section className="w-full">
-        <h2 className="text-lg sm:text-xl font-semibold mb-6 border-b pb-2">
+        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           Contact
         </h2>
         <div className="flex flex-wrap gap-2">
