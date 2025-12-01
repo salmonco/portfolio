@@ -30,48 +30,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Contact */}
-      <section className="w-full mb-16 sm:mb-20 lg:mb-24">
-        <h2 className="text-lg sm:text-xl font-semibold mb-6 border-b pb-2">
-          Contact
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          <a
-            href={`mailto:${CONTACT_URL.email}`}
-            className="inline-flex items-center gap-1.5 hover:underline"
-          >
-            <Badge variant="outline" className="text-xs py-1 px-2">
-              <Mail className="h-3 w-3 mr-1" />
-              Email
-            </Badge>
-          </a>
-          <a
-            href={CONTACT_URL.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 hover:underline"
-          >
-            <Badge variant="outline" className="text-xs py-1 px-2">
-              <Github className="h-3 w-3 mr-1" />
-              GitHub
-            </Badge>
-          </a>
-          <a
-            href={CONTACT_URL.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 hover:underline"
-          >
-            <Badge variant="outline" className="text-xs py-1 px-2">
-              <Linkedin className="h-3 w-3 mr-1" />
-              LinkedIn
-            </Badge>
-          </a>
-        </div>
-      </section>
-
       {/* Blog */}
-      <section className="w-full">
+      <section className="w-full mb-16 sm:mb-20 lg:mb-24">
         <h2 className="text-lg sm:text-xl font-semibold mb-6 border-b pb-2">
           Blog
         </h2>
@@ -107,6 +67,46 @@ const About = () => {
             <Badge variant="outline" className="text-xs py-1 px-2">
               <Coffee className="h-3 w-3 mr-1" />
               Brunch
+            </Badge>
+          </a>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="w-full">
+        <h2 className="text-lg sm:text-xl font-semibold mb-6 border-b pb-2">
+          Contact
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          <a
+            href={`mailto:${CONTACT_URL.email}`}
+            className="inline-flex items-center gap-1.5 hover:underline"
+          >
+            <Badge variant="outline" className="text-xs py-1 px-2">
+              <Mail className="h-3 w-3 mr-1" />
+              Email
+            </Badge>
+          </a>
+          <a
+            href={CONTACT_URL.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 hover:underline"
+          >
+            <Badge variant="outline" className="text-xs py-1 px-2">
+              <Github className="h-3 w-3 mr-1" />
+              GitHub
+            </Badge>
+          </a>
+          <a
+            href={CONTACT_URL.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 hover:underline"
+          >
+            <Badge variant="outline" className="text-xs py-1 px-2">
+              <Linkedin className="h-3 w-3 mr-1" />
+              LinkedIn
             </Badge>
           </a>
         </div>

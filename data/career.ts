@@ -43,6 +43,24 @@ export const CAREER_DATA = [
   },
   {
     id: 2,
+    company: "그린월드",
+    position: "현장실습",
+    period: "2024.07 ~ 2024.08",
+    description: "밸브 관개를 원격으로 제어하는 대시보드 SaaS 개발",
+    techStack: ["TypeScript", "React", "WebSocket"],
+    projects: [
+      {
+        title: "원격 제어 대시보드 개발",
+        period: "2024.07 ~ 2024.08",
+        description:
+          "골프장 관리용 밸브 관개 시스템의 원격 제어 및 모니터링 기능 구현",
+      },
+    ],
+    activities: [],
+    team: "무선기술팀",
+  },
+  {
+    id: 3,
     company: "인스타페이",
     position: "현장실습",
     period: "2023.12 ~ 2024.02",
@@ -65,23 +83,5 @@ export const CAREER_DATA = [
     ],
     activities: [],
     team: "서비스기획팀",
-  },
-  {
-    id: 3,
-    company: "그린월드",
-    position: "현장실습",
-    period: "2024.07 ~ 2024.08",
-    description: "밸브 관개를 원격으로 제어하는 대시보드 SaaS 개발",
-    techStack: ["TypeScript", "React", "WebSocket"],
-    projects: [
-      {
-        title: "원격 제어 대시보드 개발",
-        period: "2024.07 ~ 2024.08",
-        description:
-          "골프장 관리용 밸브 관개 시스템의 원격 제어 및 모니터링 기능 구현",
-      },
-    ],
-    activities: [],
-    team: "무선기술팀",
   },
 ];
