@@ -3,14 +3,18 @@ import { BLOG_URL, CONTACT_URL } from "@/data/contact";
 
 const About = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-5xl font-bold mb-16">About</h1>
+    <main className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 max-w-6xl">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 lg:mb-16 text-center">
+        About
+      </h1>
 
       {/* Career */}
-      <section className="w-full max-w-4xl mb-16">
-        <h2 className="text-3xl font-semibold mb-8 text-center">Career</h2>
+      <section className="w-full mb-12 sm:mb-16">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
+          Career
+        </h2>
         <Card>
-          <CardContent className="p-8 text-lg leading-relaxed">
+          <CardContent className="p-4 sm:p-6 lg:p-8 text-sm sm:text-base lg:text-lg leading-relaxed">
             <p className="mb-4">
               여기에 경력 정보를 작성해주세요. (예: 어떤 회사에서 어떤 역할을
               했는지, 주요 성과 등)
@@ -24,9 +28,11 @@ const About = () => {
       </section>
 
       {/* Contact */}
-      <section className="w-full max-w-4xl mb-16">
-        <h2 className="text-3xl font-semibold mb-8 text-center">Contact</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <section className="w-full mb-12 sm:mb-16">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
+          Contact
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-center">
           <Card>
             <CardHeader>
               <CardTitle>Email</CardTitle>
