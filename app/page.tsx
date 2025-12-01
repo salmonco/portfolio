@@ -18,25 +18,25 @@ const Home = async () => {
   const posts: VelogPost[] = await getVelogPosts(velogUsername);
 
   return (
-    <main className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 max-w-6xl">
+    <main className="container mx-auto px-6 py-12 sm:px-12 sm:py-16 lg:px-24 lg:py-20 max-w-4xl">
       {/* Hero Section */}
-      <section className="mb-12 sm:mb-16 lg:mb-20">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
+      <section className="mb-16 sm:mb-20 lg:mb-24">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-3 leading-relaxed">
           {HOME_DATA.hero.title}
         </h1>
         {HOME_DATA.hero.slogan && (
-          <p className="text-sm sm:text-base lg:text-lg font-light text-muted-foreground mb-4">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 leading-relaxed">
             {HOME_DATA.hero.slogan}
           </p>
         )}
-        <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl">
+        <p className="text-xs sm:text-sm text-muted-foreground leading-loose">
           {HOME_DATA.hero.description}
         </p>
       </section>
 
       {/* Main Projects */}
-      <section className="mb-12 sm:mb-16 lg:mb-20">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
+      <section className="mb-16 sm:mb-20 lg:mb-24">
+        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           Main Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -59,7 +59,7 @@ const Home = async () => {
 
       {/* Latest Velog Posts */}
       <section>
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
+        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           최신 글 (Velog)
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

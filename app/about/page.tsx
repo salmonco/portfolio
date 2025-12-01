@@ -5,14 +5,14 @@ import { BLOG_URL, CONTACT_URL } from "@/data/contact";
 
 const About = () => {
   return (
-    <main className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 max-w-6xl">
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 lg:mb-16 text-center">
+    <main className="container mx-auto px-6 py-12 sm:px-12 sm:py-16 lg:px-24 lg:py-20 max-w-4xl">
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-12 sm:mb-16 leading-relaxed">
         About
       </h1>
 
       {/* Career */}
-      <section className="w-full mb-12 sm:mb-16">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
+      <section className="w-full mb-16 sm:mb-20 lg:mb-24">
+        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           Career
         </h2>
         <div className="space-y-6">
@@ -23,8 +23,8 @@ const About = () => {
       </section>
 
       {/* Contact */}
-      <section className="w-full mb-12 sm:mb-16">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
+      <section className="w-full mb-16 sm:mb-20 lg:mb-24">
+        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           Contact
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-center">
@@ -76,7 +76,7 @@ const About = () => {
 
       {/* Blog */}
       <section className="w-full">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
+        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           Blog
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-center">

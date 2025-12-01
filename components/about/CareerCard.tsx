@@ -31,40 +31,44 @@ export function CareerCard({ career }: CareerProps) {
 
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="pb-3">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div className="flex-1">
-            <CardTitle className="text-xl sm:text-2xl">
+            <CardTitle className="text-base sm:text-lg">
               {career.company}
             </CardTitle>
-            <p className="text-sm sm:text-base text-muted-foreground mt-1">
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
               {career.position} · {career.team}
             </p>
           </div>
-          <span className="text-sm text-muted-foreground">{career.period}</span>
+          <span className="text-xs text-muted-foreground">{career.period}</span>
         </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-0">
         <Button
           variant="ghost"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full justify-start text-primary hover:text-primary mb-2"
+          className="w-full justify-start text-primary hover:text-primary mb-2 h-8 text-xs"
         >
           {isExpanded ? (
-            <ChevronDown className="mr-2 h-4 w-4" />
+            <ChevronDown className="mr-2 h-3 w-3" />
           ) : (
-            <ChevronRight className="mr-2 h-4 w-4" />
+            <ChevronRight className="mr-2 h-3 w-3" />
           )}
           {isExpanded ? "접기" : "자세히 보기"}
         </Button>
 
         {isExpanded && (
-          <div className="space-y-6 pt-4">
+          <div className="space-y-4 pt-2">
             <div>
-              <p className="text-sm sm:text-base mb-3">{career.description}</p>
-              <div className="flex flex-wrap gap-1.5">
+              <p className="text-xs sm:text-sm mb-2">{career.description}</p>
+              <div className="flex flex-wrap gap-1">
                 {career.techStack.map((tech, idx) => (
-                  <Badge key={idx} variant="secondary" className="text-xs">
+                  <Badge
+                    key={idx}
+                    variant="secondary"
+                    className="text-xs py-0 h-5"
+                  >
                     {tech}
                   </Badge>
                 ))}
@@ -72,36 +76,34 @@ export function CareerCard({ career }: CareerProps) {
             </div>
 
             {/* Projects */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-base sm:text-lg">
-                주요 프로젝트
-              </h3>
+            <div className="space-y-3">
+              <h3 className="font-semibold text-sm">주요 프로젝트</h3>
               {career.projects.map((project, idx) => (
                 <div
                   key={idx}
-                  className="pl-4 border-l-2 border-muted space-y-2"
+                  className="pl-3 border-l-2 border-muted space-y-1.5"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h4 className="font-semibold text-sm sm:text-base">
+                    <h4 className="font-semibold text-xs sm:text-sm">
                       {project.title}
                     </h4>
-                    <span className="text-xs sm:text-sm text-muted-foreground">
+                    <span className="text-xs text-muted-foreground">
                       {project.period}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     {project.description}
                   </p>
                   {project.tasks && (
-                    <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-muted-foreground">
+                    <ul className="list-disc list-inside space-y-0.5 text-xs text-muted-foreground">
                       {project.tasks.map((task, taskIdx) => (
                         <li key={taskIdx}>{task}</li>
                       ))}
                     </ul>
                   )}
                   {project.achievements && (
-                    <div className="mt-2 p-2 bg-primary/5 rounded border-l-2 border-primary">
-                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                    <div className="mt-1.5 p-2 bg-primary/5 rounded border-l-2 border-primary">
+                      <ul className="list-disc list-inside space-y-0.5 text-xs">
                         {project.achievements.map((achievement, achIdx) => (
                           <li key={achIdx} className="font-medium">
                             {achievement}
@@ -116,11 +118,9 @@ export function CareerCard({ career }: CareerProps) {
 
             {/* Activities */}
             {career.activities.length > 0 && (
-              <div className="space-y-2">
-                <h3 className="font-semibold text-base sm:text-lg">
-                  기술 공유 활동
-                </h3>
-                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-muted-foreground">
+              <div className="space-y-1.5">
+                <h3 className="font-semibold text-sm">기술 공유 활동</h3>
+                <ul className="list-disc list-inside space-y-0.5 text-xs text-muted-foreground">
                   {career.activities.map((activity, idx) => (
                     <li key={idx}>{activity}</li>
                   ))}

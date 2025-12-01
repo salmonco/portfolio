@@ -4,8 +4,8 @@ import { StartupProjectsSection } from "@/components/projects/StartupProjectsSec
 
 export default function Projects() {
   return (
-    <main className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 max-w-6xl">
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 text-center">
+    <main className="container mx-auto px-6 py-12 sm:px-12 sm:py-16 lg:px-24 lg:py-20 max-w-4xl">
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-12 sm:mb-16 leading-relaxed">
         Projects
       </h1>
       <StartupProjectsSection />

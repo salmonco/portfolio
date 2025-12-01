@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button"; // Import Button
+import { Navigation } from "@/components/Navigation";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link"; // Import Link
 import "./globals.css";
 
 const geistSans = Geist({
@@ -42,17 +41,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav className="flex justify-center space-x-4 py-4 border-b">
-          <Button asChild variant="link">
-            <Link href="/">Home</Link>
-          </Button>
-          <Button asChild variant="link">
-            <Link href="/projects">Projects</Link>
-          </Button>
-          <Button asChild variant="link">
-            <Link href="/about">About</Link>
-          </Button>
-        </nav>
+        <Navigation />
         {children}
       </body>
     </html>
