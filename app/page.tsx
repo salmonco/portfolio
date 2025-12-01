@@ -20,11 +20,16 @@ const Home = async () => {
   return (
     <main className="container mx-auto px-4 py-8 sm:py-12 lg:py-16 max-w-6xl">
       {/* Hero Section */}
-      <section className="text-center mb-12 sm:mb-16 lg:mb-20">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+      <section className="mb-12 sm:mb-16 lg:mb-20">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2">
           {HOME_DATA.hero.title}
         </h1>
-        <p className="text-base sm:text-lg lg:text-xl text-muted-foreground">
+        {HOME_DATA.hero.slogan && (
+          <p className="text-sm sm:text-base lg:text-lg font-light text-muted-foreground mb-4">
+            {HOME_DATA.hero.slogan}
+          </p>
+        )}
+        <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl">
           {HOME_DATA.hero.description}
         </p>
       </section>
