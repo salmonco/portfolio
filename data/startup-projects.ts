@@ -4,6 +4,93 @@ import type { StartupProject } from "@/types/startup-project";
 export const STARTUP_PROJECT: StartupProject[] = [
   {
     id: 1,
+    title: "레시피 암기 앱",
+    period: {
+      start: "2025.11",
+      end: null,
+    },
+    get status() {
+      return getStartupStatus(this.period.start, this.period.end);
+    },
+    summary:
+      "알바생을 위한 레시피 암기 앱. PDF 업로드만으로 AI가 자동으로 플래시카드를 생성하고, 게임처럼 재미있게 레시피를 외울 수 있습니다. 출시 후 15명의 사용자를 유치했습니다.",
+    techStack: [
+      "TypeScript",
+      "React Native",
+      "Node.js",
+      "tRPC",
+      "Prisma",
+      "Supabase",
+      "AWS",
+      "LangChain",
+      "OpenAI API",
+    ],
+    links: {
+      web: "https://slashpage.com/recipflash",
+      ios: "https://apps.apple.com/kr/app/%EB%A0%88%EC%8B%9C%ED%94%BC-%EC%99%B8%EC%9A%B0%EA%B8%B0/id6755034677",
+      android: "",
+      github: "https://github.com/salmonco/recipflash",
+    },
+    purpose: "레시피 외우기 게임을 소개한다.",
+    background:
+      "신입 알바생은 레시피를 게임처럼 외우고 싶지만 게임세트를 생성하는 과정이 번거롭다.",
+    valueProposition: [
+      "레시피를 외우고 싶은 신입 알바생은 게임세트를 간편하게 생성하기 위해 레시피 파일을 업로드하면 자동으로 플래시카드를 생성해주는 이 메뉴 자동 생성 기능을 고용한다.",
+      "레시피를 외우고 싶은 고객은 게임처럼 재미있게 레시피를 외우기 위해 이 플래시카드 랜덤 암기 기능을 고용한다.",
+    ],
+    principles: [
+      "고객은 레시피를 게임처럼 재밌게 외우는 것을 가장 중요하게 생각한다.",
+    ],
+    goals: [
+      "인당 평균 게임 수행 횟수가 2회일 것이다.",
+      "7일차 리텐션이 30%일 것이다.",
+    ],
+    metrics: [
+      {
+        metric: "인당 평균 게임 수행 횟수",
+        target: "2회",
+        reason: "사용자가 서비스를 실제로 활용하는지 측정",
+        method: "[랜덤 외우기] 버튼 클릭수",
+      },
+      {
+        metric: "7일차 리텐션",
+        target: "30%",
+        reason: "서비스의 지속 가능성 확인",
+        method: "Amplitude - new user",
+      },
+    ],
+    roadmap: [
+      {
+        stage: "1단계 (MVP)",
+        content: "AI 낱말카드 생성, 낱말카드 맞추기 게임",
+        eta: "2025.11.10",
+        status: "✅ Done",
+      },
+      {
+        stage: "2단계",
+        content:
+          "앱내 광고 달기, 동선 시뮬레이션 (동선 맵 제작하고 맵에 재료 배치해서 동선과 재료를 클릭해서 레시피 외우는 타이쿤 게임)",
+        eta: "2026.XX.XX",
+        status: "🟡 Yellow",
+      },
+      {
+        stage: "3단계",
+        content:
+          "동선 최적화 서비스 (어느 재료가 가장 많이 손에 닿는다, 그래서 작업대와의 거리를 줄이면 좋겠다 등등)",
+        eta: "2026.XX.XX",
+        status: "🔴 Red (리소스 확보 필요)",
+      },
+    ],
+    faq: [
+      {
+        question: "BM은 뭔가요?",
+        answer:
+          "초기에 알바생 대상 B2C로 데이터 쌓아서 → 프랜차이즈 대상 B2B로 구독료를 얻고자 합니다. 초기에는 광고(리워드, 전면)로 MAU 확보 및 업장 데이터를 확보하고, 중기에는 점주 대상 구독(9,900~19,900원/월)으로 교육/운영 효율화를 제공하며, 장기적으로는 프랜차이즈 대상 B2B SaaS(월 100~500만원)로 표준화 및 고정 매출을 확보할 계획입니다.",
+      },
+    ],
+  },
+  {
+    id: 2,
     title: "내일모래",
     period: {
       start: "2024.11",
@@ -20,7 +107,7 @@ export const STARTUP_PROJECT: StartupProject[] = [
       ios: "https://apps.apple.com/kr/app/%EB%82%B4%EC%9D%BC%EB%AA%A8%EB%9E%98/id6744867439",
       android:
         "https://play.google.com/store/apps/details?id=com.jeong.naeilmorae",
-      github: "",
+      github: "https://github.com/9oormthon-univ/2024_DANPOONG_TEAM_22_FE",
     },
     purpose:
       "자립준비청년들에게 목소리를 통한 정서적 지원과 연결을 제공하는 봉사 플랫폼을 만들고자 했습니다.",
