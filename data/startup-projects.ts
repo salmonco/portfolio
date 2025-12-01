@@ -4,67 +4,83 @@ import type { StartupProject } from "@/types/startup-project";
 export const STARTUP_PROJECT: StartupProject[] = [
   {
     id: 1,
-    title: "Startup Project Title 1",
+    title: "내일모래",
     period: {
-      start: "2024.01",
-      end: null, // null이면 진행중
+      start: "2024.11",
+      end: "2025.08",
     },
     get status() {
       return getStartupStatus(this.period.start, this.period.end);
     },
     summary:
-      "프로젝트의 핵심 내용을 2~3문장으로 요약합니다. 어떤 문제를 해결하고, 어떤 가치를 제공하는지 간단히 설명합니다.",
-    techStack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      "자립준비청년을 위한 목소리 봉사 플랫폼. 해커톤 수상 후 2,500명 중 22명이 앱을 설치했으며, 7일차 리텐션 17%를 기록했습니다.",
+    techStack: ["TypeScript", "React Native", "React-Query", "TailwindCSS"],
     links: {
-      web: "https://example.com",
-      ios: "",
-      android: "",
-      github: "https://github.com/example/repo",
+      web: "",
+      ios: "https://apps.apple.com/kr/app/%EB%82%B4%EC%9D%BC%EB%AA%A8%EB%9E%98/id6744867439",
+      android:
+        "https://play.google.com/store/apps/details?id=com.jeong.naeilmorae",
+      github: "",
     },
-    purpose: "이 문서의 목적을 2~3문장 이내로 설명합니다.",
+    purpose:
+      "자립준비청년들에게 목소리를 통한 정서적 지원과 연결을 제공하는 봉사 플랫폼을 만들고자 했습니다.",
     background:
-      "프로젝트를 시작하게 된 배경을 2~3문단으로 설명합니다. 개발자는 물론, 이 문서를 접하게 된 그 누구라도 이 섹션만 읽으면 일련의 진행 상황, 풀고자 하는 문제, 그리고 앞으로의 방향성에 대해 이해할 수 있어야 합니다.",
+      "8년차 자립준비청년 인터뷰(2024.11)를 통해 자립준비청년들이 겪는 정서적 고립 문제를 발견했습니다. 이들에게 필요한 것은 단순한 물질적 지원이 아닌, 지속적인 관심과 응원이었습니다.",
     valueProposition: [
-      "고객이 이 기능을 고용하는 첫 번째 이유",
-      "고객이 이 기능을 고용하는 두 번째 이유",
-      "고객이 이 기능을 고용하는 세 번째 이유",
+      "자립준비청년은 언제든지 응원의 목소리를 들을 수 있습니다",
+      "봉사자는 간편하게 목소리로 응원을 전달할 수 있습니다",
+      "비대면으로도 따뜻한 연결을 만들 수 있습니다",
     ],
     principles: [
-      "기능 개발 시 결정의 잣대가 되는 첫 번째 원칙",
-      "기능 개발 시 결정의 잣대가 되는 두 번째 원칙",
+      "자립준비청년의 프라이버시를 최우선으로 보호합니다",
+      "목소리 녹음과 듣기 기능을 최대한 간편하게 만듭니다",
     ],
-    goals: ["수치화된 첫 번째 목표", "수치화된 두 번째 목표"],
+    goals: ["7일차 리텐션 30% 달성", "월간 활성 사용자 100명 달성"],
     metrics: [
       {
-        metric: "지표명 1",
-        target: "목표값",
-        reason: "선정 근거",
-        method: "측정 방법",
+        metric: "7일차 리텐션",
+        target: "30%",
+        reason: "서비스의 핵심 가치를 경험했는지 측정",
+        method: "앱 설치 후 7일째 재방문율 추적",
       },
       {
-        metric: "지표명 2",
-        target: "목표값",
-        reason: "선정 근거",
-        method: "측정 방법",
+        metric: "앱 설치 수",
+        target: "100명",
+        reason: "초기 시장 반응 확인",
+        method: "앱스토어 다운로드 수 집계",
       },
     ],
     roadmap: [
       {
         stage: "1단계 (MVP)",
-        content: "MVP 개발 내용",
-        eta: "2025.11.30",
+        content: "목소리 녹음 및 듣기 기능 개발, 해커톤 수상",
+        eta: "2024.11",
         status: "🟢 Green",
       },
       {
         stage: "2단계",
-        content: "2단계 개발 내용",
-        eta: "2026.02.28",
-        status: "🟡 Yellow",
+        content: "자준청 2,500명 중 22명 앱 설치, 7일차 리텐션 17% 기록",
+        eta: "2025.07",
+        status: "🟢 Green",
+      },
+      {
+        stage: "3단계",
+        content: "3년차 자준청 인터뷰 진행, 리텐션 구조 개선 필요성 확인",
+        eta: "2025.08",
+        status: "🟡 Yellow (피봇 필요)",
       },
     ],
     faq: [
-      { question: "자주 묻는 질문 1", answer: "답변 1" },
-      { question: "자주 묻는 질문 2", answer: "답변 2" },
+      {
+        question: "왜 리텐션이 낮았나요?",
+        answer:
+          "핵심 기능(목소리 녹음·듣기)만으로는 사용자에게 지속적으로 돌아올 인센티브가 부족했습니다. 리텐션 구조를 근본적으로 변경할 필요가 있었습니다.",
+      },
+      {
+        question: "다음 계획은 무엇인가요?",
+        answer:
+          "사용자 인터뷰를 바탕으로 서비스 방향을 재설정(피봇)하고, 더 강력한 리텐션 구조를 설계할 예정입니다.",
+      },
     ],
   },
 ];

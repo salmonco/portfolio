@@ -2,7 +2,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -43,16 +42,10 @@ const Home = async () => {
                   <CardTitle className="text-lg sm:text-xl">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-sm">
+                  <CardDescription className="text-sm line-clamp-3">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-xs sm:text-sm text-muted-foreground">
-                    {project.description}
-                  </p>
-                </CardContent>
-                <CardFooter>{/* Optional: Add links or actions */}</CardFooter>
               </Card>
             </Link>
           ))}
