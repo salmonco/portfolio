@@ -17,6 +17,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Jisu Bong",
   description: "Jisu Bong's Personal Website",
+  openGraph: {
+    title: "Jisu Bong",
+    description: "Jisu Bong's Personal Website - Frontend Developer Portfolio",
+    url: "https://jisu-bong.com",
+    siteName: "Jisu Bong Portfolio",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jisu Bong",
+    description: "Jisu Bong's Personal Website - Frontend Developer Portfolio",
+  },
 };
 
 export default function RootLayout({
