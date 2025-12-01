@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+
 interface Props {
   links: {
     web: string;
@@ -9,15 +11,16 @@ interface Props {
 
 export function ProjectLinks({ links }: Props) {
   return (
-    <div className="flex gap-3 mt-2">
+    <div className="flex flex-wrap gap-2 sm:gap-3">
       {links.web && (
         <a
           href={links.web}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:underline text-sm"
+          className="inline-flex items-center gap-1 text-xs sm:text-sm text-primary hover:underline"
         >
           🌐 Web
+          <ExternalLink className="h-3 w-3" />
         </a>
       )}
       {links.ios && (
@@ -25,9 +28,10 @@ export function ProjectLinks({ links }: Props) {
           href={links.ios}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:underline text-sm"
+          className="inline-flex items-center gap-1 text-xs sm:text-sm text-primary hover:underline"
         >
           📱 iOS
+          <ExternalLink className="h-3 w-3" />
         </a>
       )}
       {links.android && (
@@ -35,9 +39,10 @@ export function ProjectLinks({ links }: Props) {
           href={links.android}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:underline text-sm"
+          className="inline-flex items-center gap-1 text-xs sm:text-sm text-primary hover:underline"
         >
           🤖 Android
+          <ExternalLink className="h-3 w-3" />
         </a>
       )}
       {links.github && (
@@ -45,9 +50,10 @@ export function ProjectLinks({ links }: Props) {
           href={links.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:underline text-sm"
+          className="inline-flex items-center gap-1 text-xs sm:text-sm text-primary hover:underline"
         >
           💻 GitHub
+          <ExternalLink className="h-3 w-3" />
         </a>
       )}
     </div>

@@ -2,7 +2,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -16,16 +15,17 @@ interface Props {
 
 export function OpenSourceProjectCard({ project }: Props) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{project.title}</CardTitle>
+    <Card className="h-full flex flex-col">
+      <CardHeader className="space-y-3">
+        <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
         <ProjectLinks links={project.links} />
         <TechStackTags techStack={project.techStack} />
       </CardHeader>
-      <CardContent>
-        <CardDescription>{project.description}</CardDescription>
+      <CardContent className="flex-1">
+        <CardDescription className="text-sm">
+          {project.description}
+        </CardDescription>
       </CardContent>
-      <CardFooter>{/* Optional: Add links or actions */}</CardFooter>
     </Card>
   );
 }

@@ -1,17 +1,16 @@
+import { Badge } from "@/components/ui/badge";
+
 interface Props {
   techStack: string[];
 }
 
 export function TechStackTags({ techStack }: Props) {
   return (
-    <div className="flex flex-wrap gap-2 mt-3">
+    <div className="flex flex-wrap gap-1.5 sm:gap-2">
       {techStack.map((tech, idx) => (
-        <span
-          key={idx}
-          className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
-        >
+        <Badge key={idx} variant="secondary" className="text-xs font-normal">
           {tech}
-        </span>
+        </Badge>
       ))}
     </div>
   );

@@ -23,11 +23,11 @@ export function StartupProjectsSection() {
   }, []);
 
   return (
-    <section className="w-full max-w-4xl mb-16">
-      <h2 className="text-3xl font-semibold mb-8 text-center">
+    <section className="w-full mb-12 sm:mb-16 lg:mb-20">
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">
         Startup Projects
       </h2>
-      <div className="space-y-12">
+      <div className="space-y-6 sm:space-y-8">
         {PROJECT_DATA.startup.map((project) => (
           <StartupProjectCard key={project.id} project={project} />
         ))}

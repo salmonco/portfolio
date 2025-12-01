@@ -3,9 +3,11 @@ import { OpenSourceProjectCard } from "./OpenSourceProjectCard";
 
 export function OpenSourceProjectsSection() {
   return (
-    <section className="w-full max-w-4xl">
-      <h2 className="text-3xl font-semibold mb-8 text-center">Open Source</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section className="w-full">
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">
+        Open Source
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         {PROJECT_DATA.openSource.map((project) => (
           <OpenSourceProjectCard key={project.id} project={project} />
         ))}

@@ -1,5 +1,7 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import type { StartupProject } from "@/types/startup-project";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { ProjectLinks } from "./ProjectLinks";
 import { TechStackTags } from "./TechStackTags";
@@ -20,57 +23,74 @@ export function StartupProjectCard({ project }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [expandedFaqs, setExpandedFaqs] = useState<Record<number, boolean>>({});
 
+  const statusColor =
+    project.status === "MVP 개발 완료"
+      ? "bg-blue-100 text-blue-800 hover:bg-blue-200"
+      : project.status === "PMF 검증 완료"
+      ? "bg-green-100 text-green-800 hover:bg-green-200"
+      : "bg-gray-100 text-gray-800 hover:bg-gray-200";
+
   return (
-    <Card id={`project-${project.id}`}>
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <div>
-            <CardTitle className="text-2xl">{project.title}</CardTitle>
-            <p className="text-sm text-gray-500 mt-1">
+    <Card id={`project-${project.id}`} className="overflow-hidden">
+      <CardHeader className="space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+          <div className="flex-1 min-w-0">
+            <CardTitle className="text-xl sm:text-2xl mb-2">
+              {project.title}
+            </CardTitle>
+            <p className="text-xs sm:text-sm text-muted-foreground">
               {project.period.start} ~ {project.period.end || "진행중"}
             </p>
           </div>
-          <span
-            className={`px-3 py-1 rounded-full text-sm font-semibold ${
-              project.status === "MVP 개발 완료"
-                ? "bg-blue-100 text-blue-800"
-                : project.status === "PMF 검증 완료"
-                ? "bg-green-100 text-green-800"
-                : "bg-gray-100 text-gray-800"
-            }`}
-          >
+          <Badge className={`${statusColor} shrink-0 self-start`}>
             {project.status}
-          </span>
+          </Badge>
         </div>
         <ProjectLinks links={project.links} />
-        <CardDescription className="text-base mt-2">
+        <CardDescription className="text-sm sm:text-base">
           {project.summary}
         </CardDescription>
         <TechStackTags techStack={project.techStack} />
       </CardHeader>
-      <CardContent>
-        <button
+      <CardContent className="space-y-4">
+        <Button
+          variant="ghost"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="text-blue-600 hover:underline mb-4"
+          className="w-full justify-start text-primary hover:text-primary"
         >
-          {isExpanded ? "▼ 접기" : "▶ 자세히 보기"}
-        </button>
+          {isExpanded ? (
+            <ChevronDown className="mr-2 h-4 w-4" />
+          ) : (
+            <ChevronRight className="mr-2 h-4 w-4" />
+          )}
+          {isExpanded ? "접기" : "자세히 보기"}
+        </Button>
 
         {isExpanded && (
-          <div className="space-y-6">
+          <div className="space-y-6 pt-4">
             <div>
-              <h3 className="font-semibold text-lg mb-2">1. 목적</h3>
-              <p>{project.purpose}</p>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">
+                1. 목적
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground">
+                {project.purpose}
+              </p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">2. 배경</h3>
-              <p>{project.background}</p>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">
+                2. 배경
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground">
+                {project.background}
+              </p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">3. 가치제안</h3>
-              <ol className="list-decimal list-inside space-y-1">
+              <h3 className="font-semibold text-base sm:text-lg mb-2">
+                3. 가치제안
+              </h3>
+              <ol className="list-decimal list-inside space-y-1 text-sm sm:text-base text-muted-foreground">
                 {project.valueProposition.map((value, idx) => (
                   <li key={idx}>{value}</li>
                 ))}
@@ -78,8 +98,10 @@ export function StartupProjectCard({ project }: Props) {
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">4. 원칙</h3>
-              <ol className="list-decimal list-inside space-y-1">
+              <h3 className="font-semibold text-base sm:text-lg mb-2">
+                4. 원칙
+              </h3>
+              <ol className="list-decimal list-inside space-y-1 text-sm sm:text-base text-muted-foreground">
                 {project.principles.map((principle, idx) => (
                   <li key={idx}>{principle}</li>
                 ))}
@@ -87,8 +109,10 @@ export function StartupProjectCard({ project }: Props) {
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">5. 목표</h3>
-              <ul className="list-disc list-inside space-y-1">
+              <h3 className="font-semibold text-base sm:text-lg mb-2">
+                5. 목표
+              </h3>
+              <ul className="list-disc list-inside space-y-1 text-sm sm:text-base text-muted-foreground">
                 {project.goals.map((goal, idx) => (
                   <li key={idx}>{goal}</li>
                 ))}
@@ -96,62 +120,104 @@ export function StartupProjectCard({ project }: Props) {
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">6. 주요 지표</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse border">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border p-2">지표</th>
-                      <th className="border p-2">목표</th>
-                      <th className="border p-2">선정 근거</th>
-                      <th className="border p-2">측정 방법</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {project.metrics.map((m, idx) => (
-                      <tr key={idx}>
-                        <td className="border p-2">{m.metric}</td>
-                        <td className="border p-2">{m.target}</td>
-                        <td className="border p-2">{m.reason}</td>
-                        <td className="border p-2">{m.method}</td>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">
+                6. 주요 지표
+              </h3>
+              <div className="overflow-x-auto -mx-4 sm:mx-0">
+                <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+                  <table className="min-w-full divide-y divide-border">
+                    <thead>
+                      <tr className="bg-muted/50">
+                        <th className="px-3 py-2 text-left text-xs font-medium">
+                          지표
+                        </th>
+                        <th className="px-3 py-2 text-left text-xs font-medium">
+                          목표
+                        </th>
+                        <th className="px-3 py-2 text-left text-xs font-medium hidden sm:table-cell">
+                          선정 근거
+                        </th>
+                        <th className="px-3 py-2 text-left text-xs font-medium hidden md:table-cell">
+                          측정 방법
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {project.metrics.map((m, idx) => (
+                        <tr key={idx}>
+                          <td className="px-3 py-2 text-xs sm:text-sm">
+                            {m.metric}
+                          </td>
+                          <td className="px-3 py-2 text-xs sm:text-sm">
+                            {m.target}
+                          </td>
+                          <td className="px-3 py-2 text-xs sm:text-sm hidden sm:table-cell">
+                            {m.reason}
+                          </td>
+                          <td className="px-3 py-2 text-xs sm:text-sm hidden md:table-cell">
+                            {m.method}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">7. 로드맵</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse border">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border p-2">단계</th>
-                      <th className="border p-2">내용</th>
-                      <th className="border p-2">ETA</th>
-                      <th className="border p-2">상태</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {project.roadmap.map((r, idx) => (
-                      <tr key={idx}>
-                        <td className="border p-2">{r.stage}</td>
-                        <td className="border p-2">{r.content}</td>
-                        <td className="border p-2">{r.eta}</td>
-                        <td className="border p-2">{r.status}</td>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">
+                7. 로드맵
+              </h3>
+              <div className="overflow-x-auto -mx-4 sm:mx-0">
+                <div className="inline-block min-w-full align-middle px-4 sm:px-0">
+                  <table className="min-w-full divide-y divide-border">
+                    <thead>
+                      <tr className="bg-muted/50">
+                        <th className="px-3 py-2 text-left text-xs font-medium">
+                          단계
+                        </th>
+                        <th className="px-3 py-2 text-left text-xs font-medium">
+                          내용
+                        </th>
+                        <th className="px-3 py-2 text-left text-xs font-medium hidden sm:table-cell">
+                          ETA
+                        </th>
+                        <th className="px-3 py-2 text-left text-xs font-medium">
+                          상태
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {project.roadmap.map((r, idx) => (
+                        <tr key={idx}>
+                          <td className="px-3 py-2 text-xs sm:text-sm">
+                            {r.stage}
+                          </td>
+                          <td className="px-3 py-2 text-xs sm:text-sm">
+                            {r.content}
+                          </td>
+                          <td className="px-3 py-2 text-xs sm:text-sm hidden sm:table-cell">
+                            {r.eta}
+                          </td>
+                          <td className="px-3 py-2 text-xs sm:text-sm">
+                            {r.status}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-2">8. FAQ</h3>
+              <h3 className="font-semibold text-base sm:text-lg mb-2">
+                8. FAQ
+              </h3>
               <div className="space-y-2">
                 {project.faq.map((item, idx) => (
-                  <div key={idx} className="border rounded p-3">
+                  <Card key={idx} className="border">
                     <button
                       onClick={() =>
                         setExpandedFaqs((prev) => ({
@@ -159,15 +225,25 @@ export function StartupProjectCard({ project }: Props) {
                           [idx]: !prev[idx],
                         }))
                       }
-                      className="w-full text-left font-semibold flex justify-between items-center"
+                      className="w-full p-3 sm:p-4 text-left flex justify-between items-center hover:bg-muted/50 transition-colors"
                     >
-                      <span>Q. {item.question}</span>
-                      <span>{expandedFaqs[idx] ? "▼" : "▶"}</span>
+                      <span className="font-medium text-sm sm:text-base">
+                        Q. {item.question}
+                      </span>
+                      {expandedFaqs[idx] ? (
+                        <ChevronDown className="h-4 w-4 shrink-0" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4 shrink-0" />
+                      )}
                     </button>
                     {expandedFaqs[idx] && (
-                      <p className="text-gray-700 mt-2">A. {item.answer}</p>
+                      <div className="px-3 sm:px-4 pb-3 sm:pb-4">
+                        <p className="text-sm sm:text-base text-muted-foreground">
+                          A. {item.answer}
+                        </p>
+                      </div>
                     )}
-                  </div>
+                  </Card>
                 ))}
               </div>
             </div>
