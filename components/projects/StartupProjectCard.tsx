@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/amplitude/trackEvent";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -66,7 +67,13 @@ export function StartupProjectCard({ project }: Props) {
       <CardContent className="space-y-4">
         <Button
           variant="ghost"
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={() => {
+            trackEvent("startup_project_card_toggle", {
+              project_id: project.id,
+              expanded: !isExpanded,
+            });
+            setIsExpanded(!isExpanded);
+          }}
           className="w-full justify-start text-primary hover:text-primary"
         >
           {isExpanded ? (
@@ -230,12 +237,17 @@ export function StartupProjectCard({ project }: Props) {
                 {project.faq.map((item, idx) => (
                   <Card key={idx} className="border">
                     <button
-                      onClick={() =>
+                      onClick={() => {
+                        trackEvent("startup_project_faq_toggle", {
+                          project_id: project.id,
+                          faq_index: idx,
+                          expanded: !expandedFaqs[idx],
+                        });
                         setExpandedFaqs((prev) => ({
                           ...prev,
                           [idx]: !prev[idx],
-                        }))
-                      }
+                        }));
+                      }}
                       className="w-full p-3 sm:p-4 text-left flex justify-between items-center hover:bg-muted/50 transition-colors"
                     >
                       <span className="font-medium text-sm sm:text-base">

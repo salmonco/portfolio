@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/amplitude/trackEvent";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -16,6 +17,11 @@ export function Navigation() {
           className={cn(
             pathname === "/" && "underline underline-offset-4 font-semibold"
           )}
+          onClick={() => {
+            trackEvent("navigation_button_click", {
+              pathname,
+            });
+          }}
         >
           Home
         </Button>

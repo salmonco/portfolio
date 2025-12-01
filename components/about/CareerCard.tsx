@@ -1,5 +1,6 @@
 "use client";
 
+import { trackEvent } from "@/amplitude/trackEvent";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronRight } from "lucide-react";
@@ -44,7 +45,13 @@ export function CareerCard({ career }: CareerProps) {
 
       <Button
         variant="ghost"
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={() => {
+          trackEvent("career_card_toggle", {
+            career_id: career.id,
+            expanded: !isExpanded,
+          });
+          setIsExpanded(!isExpanded);
+        }}
         className="h-6 px-2 text-xs text-muted-foreground hover:text-primary -ml-2 mb-2"
       >
         {isExpanded ? (

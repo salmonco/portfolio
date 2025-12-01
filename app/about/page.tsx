@@ -1,4 +1,5 @@
 import { CareerCard } from "@/components/about/CareerCard";
+import { TrackableLink } from "@/components/TrackableLink";
 import { Badge } from "@/components/ui/badge";
 import { CAREER_DATA } from "@/data/career";
 import { BLOG_URL, CONTACT_URL } from "@/data/contact";
@@ -32,39 +33,45 @@ const About = () => {
           Blog
         </h2>
         <div className="flex flex-wrap gap-2">
-          <a
+          <TrackableLink
             href={BLOG_URL.velog}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 hover:underline"
+            eventName="blog_link_click"
+            eventProperties={{ platform: "velog" }}
           >
             <Badge variant="outline" className="text-xs py-1 px-2">
               <FileText className="h-3 w-3 mr-1" />
               Velog
             </Badge>
-          </a>
-          <a
+          </TrackableLink>
+          <TrackableLink
             href={BLOG_URL.naver}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 hover:underline"
+            eventName="blog_link_click"
+            eventProperties={{ platform: "naver" }}
           >
             <Badge variant="outline" className="text-xs py-1 px-2">
               <BookOpen className="h-3 w-3 mr-1" />
               Naver Blog
             </Badge>
-          </a>
-          <a
+          </TrackableLink>
+          <TrackableLink
             href={BLOG_URL.brunch}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 hover:underline"
+            eventName="blog_link_click"
+            eventProperties={{ platform: "brunch" }}
           >
             <Badge variant="outline" className="text-xs py-1 px-2">
               <Coffee className="h-3 w-3 mr-1" />
               Brunch
             </Badge>
-          </a>
+          </TrackableLink>
         </div>
       </section>
 
@@ -74,37 +81,43 @@ const About = () => {
           Contact
         </h2>
         <div className="flex flex-wrap gap-2">
-          <a
+          <TrackableLink
             href={`mailto:${CONTACT_URL.email}`}
             className="inline-flex items-center gap-1.5 hover:underline"
+            eventName="contact_link_click"
+            eventProperties={{ type: "email" }}
           >
             <Badge variant="outline" className="text-xs py-1 px-2">
               <Mail className="h-3 w-3 mr-1" />
               Email
             </Badge>
-          </a>
-          <a
+          </TrackableLink>
+          <TrackableLink
             href={CONTACT_URL.github}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 hover:underline"
+            eventName="contact_link_click"
+            eventProperties={{ type: "github" }}
           >
             <Badge variant="outline" className="text-xs py-1 px-2">
               <Github className="h-3 w-3 mr-1" />
               GitHub
             </Badge>
-          </a>
-          <a
+          </TrackableLink>
+          <TrackableLink
             href={CONTACT_URL.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 hover:underline"
+            eventName="contact_link_click"
+            eventProperties={{ type: "linkedin" }}
           >
             <Badge variant="outline" className="text-xs py-1 px-2">
               <Linkedin className="h-3 w-3 mr-1" />
               LinkedIn
             </Badge>
-          </a>
+          </TrackableLink>
         </div>
       </section>
     </main>

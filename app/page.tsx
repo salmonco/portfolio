@@ -1,3 +1,4 @@
+import { TrackableLink } from "@/components/TrackableLink";
 import {
   Card,
   CardContent,
@@ -11,7 +12,6 @@ import { getVelogPosts } from "@/velog/getVelogPosts";
 import { truncateDescription } from "@/velog/truncateDescription";
 import { VelogPost } from "@/velog/types";
 import Image from "next/image";
-import Link from "next/link";
 
 const Home = async () => {
   const velogUsername = "salmonco";
@@ -41,7 +41,15 @@ const Home = async () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {HOME_DATA.mainProjects.map((project) => (
-            <Link key={project.id} href={`/projects#project-${project.id}`}>
+            <TrackableLink
+              key={project.id}
+              href={`/projects#project-${project.id}`}
+              eventName="main_project_card_click"
+              eventProperties={{
+                project_id: project.id,
+                project_title: project.title,
+              }}
+            >
               <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
                 <CardHeader>
                   <CardTitle className="text-lg sm:text-xl">
@@ -52,7 +60,7 @@ const Home = async () => {
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </Link>
+            </TrackableLink>
           ))}
         </div>
       </section>
@@ -65,11 +73,16 @@ const Home = async () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {posts.length > 0 ? (
             posts.map((post) => (
-              <Link
+              <TrackableLink
                 key={post.id}
                 href={`${BLOG_URL.velog}/${post.url_slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                eventName="velog_post_click"
+                eventProperties={{
+                  post_id: post.id,
+                  post_title: post.title,
+                }}
               >
                 <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                   {post.thumbnail && (
@@ -95,7 +108,7 @@ const Home = async () => {
                     </p>
                   </CardContent>
                 </Card>
-              </Link>
+              </TrackableLink>
             ))
           ) : (
             <p className="col-span-full text-center text-muted-foreground text-sm">
