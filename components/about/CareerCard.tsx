@@ -2,7 +2,6 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
@@ -30,106 +29,98 @@ export function CareerCard({ career }: CareerProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Card>
-      <CardHeader className="pb-3">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <div className="flex-1">
-            <CardTitle className="text-base sm:text-lg">
-              {career.company}
-            </CardTitle>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
-              {career.position} · {career.team}
-            </p>
-          </div>
-          <span className="text-xs text-muted-foreground">{career.period}</span>
+    <div className="border-l-2 border-muted pl-4 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
+        <div className="flex-1">
+          <h3 className="text-sm sm:text-base font-semibold">
+            {career.company}
+          </h3>
+          <p className="text-xs text-muted-foreground">
+            {career.position} · {career.team}
+          </p>
         </div>
-      </CardHeader>
-      <CardContent className="pt-0">
-        <Button
-          variant="ghost"
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full justify-start text-primary hover:text-primary mb-2 h-8 text-xs"
-        >
-          {isExpanded ? (
-            <ChevronDown className="mr-2 h-3 w-3" />
-          ) : (
-            <ChevronRight className="mr-2 h-3 w-3" />
-          )}
-          {isExpanded ? "접기" : "자세히 보기"}
-        </Button>
+        <span className="text-xs text-muted-foreground">{career.period}</span>
+      </div>
 
-        {isExpanded && (
-          <div className="space-y-4 pt-2">
-            <div>
-              <p className="text-xs sm:text-sm mb-2">{career.description}</p>
-              <div className="flex flex-wrap gap-1">
-                {career.techStack.map((tech, idx) => (
-                  <Badge
-                    key={idx}
-                    variant="secondary"
-                    className="text-xs py-0 h-5"
-                  >
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </div>
+      <Button
+        variant="ghost"
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="h-6 px-2 text-xs text-muted-foreground hover:text-primary -ml-2 mb-2"
+      >
+        {isExpanded ? (
+          <ChevronDown className="mr-1 h-3 w-3" />
+        ) : (
+          <ChevronRight className="mr-1 h-3 w-3" />
+        )}
+        {isExpanded ? "접기" : "자세히 보기"}
+      </Button>
 
-            {/* Projects */}
-            <div className="space-y-3">
-              <h3 className="font-semibold text-sm">주요 프로젝트</h3>
-              {career.projects.map((project, idx) => (
-                <div
+      {isExpanded && (
+        <div className="space-y-3 text-xs">
+          <div>
+            <p className="text-muted-foreground mb-2">{career.description}</p>
+            <div className="flex flex-wrap gap-1">
+              {career.techStack.map((tech, idx) => (
+                <Badge
                   key={idx}
-                  className="pl-3 border-l-2 border-muted space-y-1.5"
+                  variant="secondary"
+                  className="text-xs py-0 h-4 px-1.5"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h4 className="font-semibold text-xs sm:text-sm">
-                      {project.title}
-                    </h4>
-                    <span className="text-xs text-muted-foreground">
-                      {project.period}
-                    </span>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {project.description}
-                  </p>
-                  {project.tasks && (
-                    <ul className="list-disc list-inside space-y-0.5 text-xs text-muted-foreground">
-                      {project.tasks.map((task, taskIdx) => (
-                        <li key={taskIdx}>{task}</li>
-                      ))}
-                    </ul>
-                  )}
-                  {project.achievements && (
-                    <div className="mt-1.5 p-2 bg-primary/5 rounded border-l-2 border-primary">
-                      <ul className="list-disc list-inside space-y-0.5 text-xs">
-                        {project.achievements.map((achievement, achIdx) => (
-                          <li key={achIdx} className="font-medium">
-                            {achievement}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
+                  {tech}
+                </Badge>
               ))}
             </div>
-
-            {/* Activities */}
-            {career.activities.length > 0 && (
-              <div className="space-y-1.5">
-                <h3 className="font-semibold text-sm">기술 공유 활동</h3>
-                <ul className="list-disc list-inside space-y-0.5 text-xs text-muted-foreground">
-                  {career.activities.map((activity, idx) => (
-                    <li key={idx}>{activity}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
-        )}
-      </CardContent>
-    </Card>
+
+          {/* Projects */}
+          <div className="space-y-2">
+            <h4 className="font-semibold text-xs">주요 프로젝트</h4>
+            {career.projects.map((project, idx) => (
+              <div key={idx} className="pl-2 border-l border-muted space-y-1">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                  <h5 className="font-medium text-xs">{project.title}</h5>
+                  <span className="text-xs text-muted-foreground">
+                    {project.period}
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {project.description}
+                </p>
+                {project.tasks && (
+                  <ul className="list-disc list-inside space-y-0.5 text-xs text-muted-foreground">
+                    {project.tasks.map((task, taskIdx) => (
+                      <li key={taskIdx}>{task}</li>
+                    ))}
+                  </ul>
+                )}
+                {project.achievements && (
+                  <div className="mt-1 p-1.5 bg-primary/5 rounded border-l border-primary">
+                    <ul className="list-disc list-inside space-y-0.5 text-xs">
+                      {project.achievements.map((achievement, achIdx) => (
+                        <li key={achIdx} className="font-medium">
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Activities */}
+          {career.activities.length > 0 && (
+            <div className="space-y-1">
+              <h4 className="font-semibold text-xs">기술 공유 활동</h4>
+              <ul className="list-disc list-inside space-y-0.5 text-xs text-muted-foreground">
+                {career.activities.map((activity, idx) => (
+                  <li key={idx}>{activity}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

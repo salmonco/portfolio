@@ -12,10 +12,10 @@ const About = () => {
 
       {/* Career */}
       <section className="w-full mb-16 sm:mb-20 lg:mb-24">
-        <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
+        <h2 className="text-lg sm:text-xl font-semibold mb-6 border-b pb-2">
           Career
         </h2>
-        <div className="space-y-6">
+        <div className="space-y-0">
           {CAREER_DATA.map((career) => (
             <CareerCard key={career.id} career={career} />
           ))}
