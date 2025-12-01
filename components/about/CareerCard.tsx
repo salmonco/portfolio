@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronDown, ChevronRight } from "lucide-react";
@@ -12,6 +13,7 @@ interface CareerProps {
     position: string;
     period: string;
     description: string;
+    techStack: string[];
     projects: Array<{
       title: string;
       period: string;
@@ -58,7 +60,16 @@ export function CareerCard({ career }: CareerProps) {
 
         {isExpanded && (
           <div className="space-y-6 pt-4">
-            <p className="text-sm sm:text-base">{career.description}</p>
+            <div>
+              <p className="text-sm sm:text-base mb-3">{career.description}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {career.techStack.map((tech, idx) => (
+                  <Badge key={idx} variant="secondary" className="text-xs">
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </div>
 
             {/* Projects */}
             <div className="space-y-4">

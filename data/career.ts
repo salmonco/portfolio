@@ -2,10 +2,11 @@ export const CAREER_DATA = [
   {
     id: 1,
     company: "카카오페이증권",
-    position: "FE개발팀 인턴",
+    position: "인턴",
     period: "2025.02 ~ 2025.07",
     description:
       "증권 탭 내 증권 홈페이지, 연금저축계좌, 펀드 페이지 등 다양한 서비스 유지보수 및 신규 서비스 개발",
+    techStack: ["TypeScript", "Next.js", "React-Query", "MSW", "Storybook"],
     projects: [
       {
         title: "증권 서비스 유지보수",
@@ -38,6 +39,24 @@ export const CAREER_DATA = [
       "React Native를 활용한 Build-Measure-Learn: 린 스타트업 서적의 이론을 실제 프로젝트에 적용하는 방법에 대한 기술 토론 발표",
       "인남모(인턴이 남주는 모임): 동료 인턴들과 매주 인사이트를 공유하는 스터디 진행",
     ],
-    team: "FE Development Team & Pension Product Team",
+    team: "FE개발팀 · 연금펀드팀",
+  },
+  {
+    id: 2,
+    company: "그린월드",
+    position: "현장실습 연구원",
+    period: "2024.07 ~ 2024.08",
+    description: "밸브 관개를 원격으로 제어하는 대시보드 SaaS 개발",
+    techStack: ["TypeScript", "React", "WebSocket"],
+    projects: [
+      {
+        title: "원격 제어 대시보드 개발",
+        period: "2024.07 ~ 2024.08",
+        description:
+          "골프장 관리용 밸브 관개 시스템의 원격 제어 및 모니터링 기능 구현",
+      },
+    ],
+    activities: [],
+    team: "무선기술팀",
   },
 ];
