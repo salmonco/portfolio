@@ -9,24 +9,26 @@ import { usePathname } from "next/navigation";
 export function Navigation() {
   const pathname = usePathname();
 
+  const handleNavClick = (destination: string) => {
+    trackEvent("navigation_button_click", {
+      from: pathname,
+      to: destination,
+    });
+  };
+
   return (
     <nav className="flex justify-center space-x-4 py-4 border-b">
-      <Link href="/">
+      <Link href="/" onClick={() => handleNavClick("/")}>
         <Button
           variant="link"
           className={cn(
             pathname === "/" && "underline underline-offset-4 font-semibold"
           )}
-          onClick={() => {
-            trackEvent("navigation_button_click", {
-              pathname,
-            });
-          }}
         >
           Home
         </Button>
       </Link>
-      <Link href="/projects">
+      <Link href="/projects" onClick={() => handleNavClick("/projects")}>
         <Button
           variant="link"
           className={cn(
@@ -37,7 +39,7 @@ export function Navigation() {
           Projects
         </Button>
       </Link>
-      <Link href="/about">
+      <Link href="/about" onClick={() => handleNavClick("/about")}>
         <Button
           variant="link"
           className={cn(
