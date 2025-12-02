@@ -22,7 +22,7 @@ const Home = async () => {
           {HOME_DATA.hero.title}
         </h1>
         {HOME_DATA.hero.slogan && (
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground mb-6 leading-relaxed">
+          <p className="text-xs sm:text-sm text-muted-foreground mb-6 leading-relaxed">
             {HOME_DATA.hero.slogan}
           </p>
         )}
