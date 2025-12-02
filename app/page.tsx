@@ -1,11 +1,5 @@
 import { HistoryTimeline } from "@/components/HistoryTimeline";
 import { TrackableLink } from "@/components/TrackableLink";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { BLOG_URL } from "@/data/contact";
 import { HOME_DATA } from "@/data/home";
 import { getVelogPosts } from "@/velog/getVelogPosts";
@@ -42,28 +36,35 @@ const Home = async () => {
         <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
           Main Projects
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {HOME_DATA.mainProjects.map((project) => (
-            <TrackableLink
+        <div className="space-y-4">
+          {HOME_DATA.mainProjects.map((project, index) => (
+            <div
               key={project.id}
-              href={`/projects#project-${project.id}`}
-              eventName="main_project_card_click"
-              eventProperties={{
-                project_id: project.id,
-                project_title: project.title,
-              }}
+              className="flex gap-4 items-start hover:bg-muted/50 p-3 rounded-lg transition-colors group"
             >
-              <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
-                <CardHeader>
-                  <CardTitle className="text-lg sm:text-xl">
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm line-clamp-3">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            </TrackableLink>
+              <span className="text-2xl font-bold text-muted-foreground/30 group-hover:text-muted-foreground/50 transition-colors">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base font-semibold mb-1">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">
+                  {project.description}
+                </p>
+              </div>
+              <TrackableLink
+                href={`/projects#project-${project.id}`}
+                eventName="main_project_more_click"
+                eventProperties={{
+                  project_id: project.id,
+                  project_title: project.title,
+                }}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors shrink-0"
+              >
+                More →
+              </TrackableLink>
+            </div>
           ))}
         </div>
       </section>
