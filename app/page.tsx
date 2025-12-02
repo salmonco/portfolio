@@ -72,7 +72,7 @@ const Home = async () => {
       {/* Latest Velog Posts */}
       <section>
         <h2 className="text-lg sm:text-xl font-semibold mb-8 border-b pb-2">
-          최신 글 (Velog)
+          Latest Posts
         </h2>
         <ul className="list-disc list-inside space-y-2">
           {posts.length > 0 ? (
