@@ -1,7 +1,7 @@
 "use client";
 
 import { PROJECT_DATA } from "@/data/projects";
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import { StartupProjectCard } from "./StartupProjectCard";
 
 export function StartupProjectsSection() {
@@ -12,9 +12,14 @@ export function StartupProjectsSection() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      const id = hash.replace("#project-", "");
-      const projectId = Number(id);
-      setExpandedProjects({ [projectId]: true });
+      // startTransition: useEffect 내 setState의 cascading render 에러 방지
+      // 프로젝트 상세 열기는 긴급하지 않은 업데이트이므로 transition으로 처리
+      startTransition(() => {
+        const id = hash.replace("#project-", "");
+        const projectId = Number(id);
+        setExpandedProjects({ [projectId]: true });
+      });
+
       setTimeout(() => {
         document
           .querySelector(hash)

@@ -1,7 +1,7 @@
 "use client";
 
 import { CAREER_DATA } from "@/data/career";
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import { CareerCard } from "./CareerCard";
 
 export function CareerSection() {
@@ -12,18 +12,20 @@ export function CareerSection() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash.startsWith("#career")) {
-      if (hash === "#career") {
-        // 모든 커리어 카드 펼치기
-        const allExpanded = CAREER_DATA.reduce((acc, career) => {
-          acc[career.id] = true;
-          return acc;
-        }, {} as Record<number, boolean>);
-        setExpandedCareers(allExpanded);
-      } else {
-        // 특정 커리어 카드만 펼치기
-        const careerId = Number(hash.replace("#career-", ""));
-        setExpandedCareers({ [careerId]: true });
-      }
+      // startTransition: useEffect 내 setState의 cascading render 에러 방지
+      // 토글 열기는 긴급하지 않은 업데이트이므로 transition으로 처리
+      startTransition(() => {
+        if (hash === "#career") {
+          const allExpanded = CAREER_DATA.reduce((acc, career) => {
+            acc[career.id] = true;
+            return acc;
+          }, {} as Record<number, boolean>);
+          setExpandedCareers(allExpanded);
+        } else {
+          const careerId = Number(hash.replace("#career-", ""));
+          setExpandedCareers({ [careerId]: true });
+        }
+      });
 
       setTimeout(() => {
         document
