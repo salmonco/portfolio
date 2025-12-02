@@ -24,13 +24,38 @@ interface CareerProps {
     activities: string[];
     team: string;
   };
+  isExpanded?: boolean;
+  onToggle?: (expanded: boolean) => void;
 }
 
-export function CareerCard({ career }: CareerProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+export function CareerCard({
+  career,
+  isExpanded: externalIsExpanded,
+  onToggle,
+}: CareerProps) {
+  const [internalIsExpanded, setInternalIsExpanded] = useState(false);
+
+  const isExpanded =
+    externalIsExpanded !== undefined ? externalIsExpanded : internalIsExpanded;
+
+  const handleToggle = () => {
+    const newExpanded = !isExpanded;
+    if (onToggle) {
+      onToggle(newExpanded);
+    } else {
+      setInternalIsExpanded(newExpanded);
+    }
+    trackEvent("career_card_toggle", {
+      career_id: career.id,
+      expanded: newExpanded,
+    });
+  };
 
   return (
-    <div className="border-l-2 border-muted pl-4 pb-6">
+    <div
+      id={`career-${career.id}`}
+      className="border-l-2 border-muted pl-4 pb-6"
+    >
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
         <div className="flex-1">
           <h3 className="text-sm sm:text-base font-semibold">
@@ -45,13 +70,7 @@ export function CareerCard({ career }: CareerProps) {
 
       <Button
         variant="ghost"
-        onClick={() => {
-          trackEvent("career_card_toggle", {
-            career_id: career.id,
-            expanded: !isExpanded,
-          });
-          setIsExpanded(!isExpanded);
-        }}
+        onClick={handleToggle}
         className="h-6 px-2 text-xs text-muted-foreground hover:text-primary -ml-2 mb-2"
       >
         {isExpanded ? (

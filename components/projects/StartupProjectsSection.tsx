@@ -13,12 +13,13 @@ export function StartupProjectsSection() {
     const hash = window.location.hash;
     if (hash) {
       const id = hash.replace("#project-", "");
+      const projectId = Number(id);
+      setExpandedProjects({ [projectId]: true });
       setTimeout(() => {
-        setExpandedProjects({ [Number(id)]: true });
         document
           .querySelector(hash)
-          ?.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 0);
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
     }
   }, []);
 
@@ -29,7 +30,17 @@ export function StartupProjectsSection() {
       </h2>
       <div className="space-y-6 sm:space-y-8">
         {PROJECT_DATA.startup.map((project) => (
-          <StartupProjectCard key={project.id} project={project} />
+          <StartupProjectCard
+            key={project.id}
+            project={project}
+            isExpanded={expandedProjects[project.id] || false}
+            onToggle={(expanded) =>
+              setExpandedProjects((prev) => ({
+                ...prev,
+                [project.id]: expanded,
+              }))
+            }
+          />
         ))}
       </div>
     </section>

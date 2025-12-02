@@ -18,11 +18,33 @@ import { TechStackTags } from "./TechStackTags";
 
 interface Props {
   project: StartupProject;
+  isExpanded?: boolean;
+  onToggle?: (expanded: boolean) => void;
 }
 
-export function StartupProjectCard({ project }: Props) {
-  const [isExpanded, setIsExpanded] = useState(false);
+export function StartupProjectCard({
+  project,
+  isExpanded: externalIsExpanded,
+  onToggle,
+}: Props) {
+  const [internalIsExpanded, setInternalIsExpanded] = useState(false);
   const [expandedFaqs, setExpandedFaqs] = useState<Record<number, boolean>>({});
+
+  const isExpanded =
+    externalIsExpanded !== undefined ? externalIsExpanded : internalIsExpanded;
+
+  const handleToggle = () => {
+    const newExpanded = !isExpanded;
+    if (onToggle) {
+      onToggle(newExpanded);
+    } else {
+      setInternalIsExpanded(newExpanded);
+    }
+    trackEvent("startup_project_card_toggle", {
+      project_id: project.id,
+      expanded: newExpanded,
+    });
+  };
 
   const statusColor =
     project.status === "MVP 개발 중"
@@ -67,13 +89,7 @@ export function StartupProjectCard({ project }: Props) {
       <CardContent className="space-y-4">
         <Button
           variant="ghost"
-          onClick={() => {
-            trackEvent("startup_project_card_toggle", {
-              project_id: project.id,
-              expanded: !isExpanded,
-            });
-            setIsExpanded(!isExpanded);
-          }}
+          onClick={handleToggle}
           className="w-full justify-start text-primary hover:text-primary"
         >
           {isExpanded ? (

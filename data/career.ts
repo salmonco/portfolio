@@ -44,7 +44,7 @@ export const CAREER_DATA = [
   {
     id: 2,
     company: "그린월드",
-    position: "현장실습",
+    position: "인턴",
     period: "2024.07 ~ 2024.08",
     description: "밸브 관개를 원격으로 제어하는 대시보드 SaaS 개발",
     techStack: ["TypeScript", "React", "WebSocket"],
@@ -62,7 +62,7 @@ export const CAREER_DATA = [
   {
     id: 3,
     company: "인스타페이",
-    position: "현장실습",
+    position: "인턴",
     period: "2023.12 ~ 2024.02",
     description: "사내 직원들이 사용하는 설문조사 폼 관리 시스템 개발·유지보수",
     techStack: ["HTML", "CSS", "JavaScript", "Bootstrap 5", "Firebase"],

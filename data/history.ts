@@ -6,6 +6,7 @@ export const HISTORY_DATA = [
     startDate: "2023-04",
     endDate: "2023-11",
     color: "#f59e0b",
+    link: null,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const HISTORY_DATA = [
     startDate: "2023-12",
     endDate: "2024-02",
     color: "#10b981",
+    link: "/about#career-3",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const HISTORY_DATA = [
     startDate: "2024-07",
     endDate: "2024-11",
     color: "#f59e0b",
+    link: null,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const HISTORY_DATA = [
     startDate: "2024-08",
     endDate: "2025-12",
     color: "#3b82f6",
+    link: "/projects#project-1",
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ export const HISTORY_DATA = [
     startDate: "2024-11",
     endDate: "2025-08",
     color: "#3b82f6",
+    link: "/projects#project-3",
   },
   {
     id: 6,
@@ -46,6 +51,7 @@ export const HISTORY_DATA = [
     startDate: "2025-02",
     endDate: "2025-07",
     color: "#10b981",
+    link: "/about#career-1",
   },
 ] as const;
 
