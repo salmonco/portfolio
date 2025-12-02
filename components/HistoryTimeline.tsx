@@ -76,9 +76,11 @@ export const HistoryTimeline = () => {
                       backgroundColor: item.color,
                     }}
                   >
-                    <span className="truncate">{item.label}</span>
+                    <span className="truncate">
+                      {item.label} - {item.description}
+                    </span>
                     <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-gray-900 text-white text-xs rounded py-1 px-2 whitespace-nowrap z-10">
-                      {item.label}
+                      {item.label} - {item.description}
                       <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
                     </div>
                   </Link>
@@ -91,9 +93,11 @@ export const HistoryTimeline = () => {
                       backgroundColor: item.color,
                     }}
                   >
-                    <span className="truncate">{item.label}</span>
+                    <span className="truncate">
+                      {item.label} - {item.description}
+                    </span>
                     <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-gray-900 text-white text-xs rounded py-1 px-2 whitespace-nowrap z-10">
-                      {item.label}
+                      {item.label} - {item.description}
                       <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
                     </div>
                   </div>
@@ -107,10 +111,10 @@ export const HistoryTimeline = () => {
       {/* 모바일: 세로 타임라인 */}
       <div className="md:hidden">
         <div className="relative px-4">
-          {/* 중앙 타임라인 */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-border" />
+          {/* Y축 타임라인 - 명확하게 보이도록 */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-1 bg-gray-300 dark:bg-gray-600" />
 
-          {/* 연도 표시 */}
+          {/* 연도 표시 - 왼쪽에 배치 */}
           {years.map((year) => {
             const yearStartMonth = year === startYear ? startMonth : 1;
             const monthsFromStart =
@@ -122,10 +126,10 @@ export const HistoryTimeline = () => {
             return (
               <div
                 key={year}
-                className="absolute left-1/2 -translate-x-1/2 bg-background px-2 text-xs font-medium text-muted-foreground"
+                className="absolute left-0 z-20"
                 style={{ top: `${topPercent}%` }}
               >
-                {year}
+                <div className="text-xs font-bold text-primary">{year}</div>
               </div>
             );
           })}
@@ -156,64 +160,65 @@ export const HistoryTimeline = () => {
                   }}
                 >
                   <div
-                    className={`relative h-full flex items-center ${
-                      isLeft ? "justify-end" : "justify-start"
+                    className={`relative h-full flex flex-col justify-center ${
+                      isLeft ? "items-end pr-3" : "items-start pl-3"
                     }`}
                   >
-                    {/* 연결선 */}
+                    {/* 세로 색상 바 - 기간 표시 */}
                     <div
-                      className={`absolute top-0 bottom-0 w-8 ${
-                        isLeft ? "right-0" : "left-0"
-                      }`}
-                      style={{
-                        background: `linear-gradient(to ${
-                          isLeft ? "left" : "right"
-                        }, ${item.color}00, ${item.color})`,
-                      }}
+                      className={`absolute ${
+                        isLeft
+                          ? "right-0 translate-x-1/2"
+                          : "left-0 -translate-x-1/2"
+                      } top-0 bottom-0 w-1 rounded-full`}
+                      style={{ backgroundColor: item.color }}
                     />
 
-                    {/* 중앙 점 */}
+                    {/* 시작점 */}
                     <div
                       className={`absolute ${
-                        isLeft ? "right-0" : "left-0"
-                      } top-0 w-2.5 h-2.5 rounded-full border-2 border-background z-10`}
+                        isLeft
+                          ? "right-0 translate-x-1/2"
+                          : "left-0 -translate-x-1/2"
+                      } top-0 -translate-y-1/2 w-3 h-3 rounded-full border-2 border-background z-10`}
                       style={{ backgroundColor: item.color }}
                     />
+
+                    {/* 종료점 */}
                     <div
                       className={`absolute ${
-                        isLeft ? "right-0" : "left-0"
-                      } bottom-0 w-2.5 h-2.5 rounded-full border-2 border-background z-10`}
+                        isLeft
+                          ? "right-0 translate-x-1/2"
+                          : "left-0 -translate-x-1/2"
+                      } bottom-0 translate-y-1/2 w-3 h-3 rounded-full border-2 border-background z-10`}
                       style={{ backgroundColor: item.color }}
                     />
+
+                    {/* rowLabel */}
+                    <div className="text-[9px] text-muted-foreground font-medium mb-1">
+                      {item.rowLabel}
+                    </div>
 
                     {/* 내용 카드 */}
-                    <div
-                      className={`${isLeft ? "mr-10" : "ml-10"} max-w-[140px]`}
-                    >
+                    <div className="max-w-[120px]">
                       {item.link ? (
                         <Link href={item.link}>
                           <div className="bg-background border rounded-lg p-2 shadow-sm hover:shadow-md transition-shadow">
-                            <div className="text-[10px] text-muted-foreground mb-0.5">
-                              {item.rowLabel}
-                            </div>
-                            <div className="text-xs font-medium mb-1 line-clamp-2">
+                            <div className="text-xs font-medium leading-tight mb-1">
                               {item.label}
                             </div>
-                            <div className="text-[9px] text-muted-foreground">
-                              {period}
+                            <div className="text-[10px] text-muted-foreground leading-tight">
+                              {item.description}
                             </div>
                           </div>
                         </Link>
                       ) : (
                         <div className="bg-background border rounded-lg p-2 shadow-sm">
-                          <div className="text-[10px] text-muted-foreground mb-0.5">
-                            {item.rowLabel}
-                          </div>
-                          <div className="text-xs font-medium mb-1 line-clamp-2">
+                          <div className="text-xs font-medium leading-tight mb-1">
                             {item.label}
                           </div>
-                          <div className="text-[9px] text-muted-foreground">
-                            {period}
+                          <div className="text-[10px] text-muted-foreground leading-tight">
+                            {item.description}
                           </div>
                         </div>
                       )}
