@@ -25,7 +25,7 @@ export const HISTORY_DATA = [
     label: "창업동아리",
     description: "STACK",
     startDate: "2024-07",
-    endDate: "2024-11",
+    endDate: "2024-10",
     color: "#f59e0b",
     link: null,
   },

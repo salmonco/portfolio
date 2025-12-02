@@ -135,23 +135,70 @@ export const HistoryTimeline = () => {
           })}
 
           <div className="relative" style={{ minHeight: "600px" }}>
-            {/* 각 항목을 좌우 번갈아 배치 */}
+            {/* 각 항목을 좌우 배치 - 겹침 방지 */}
             {HISTORY_DATA.map((item, index) => {
               const startOffset = getMonthsDiff(TIMELINE_START, item.startDate);
               const duration = getMonthsDiff(item.startDate, item.endDate) + 1;
               const topPercent = (startOffset / totalMonths) * 100;
               const heightPercent = (duration / totalMonths) * 100;
+              const endOffset = startOffset + duration;
 
-              const [startYear, startMonth] = item.startDate.split("-");
-              const [endYear, endMonth] = item.endDate.split("-");
-              const period = `${startYear}.${startMonth} ~ ${endYear}.${endMonth}`;
+              // 왼쪽과 오른쪽 레인에서 겹치는지 확인
+              let leftOverlap = false;
+              let rightOverlap = false;
 
-              const isLeft = index % 2 === 0;
+              for (let i = 0; i < index; i++) {
+                const prevItem = HISTORY_DATA[i];
+                const prevStart = getMonthsDiff(
+                  TIMELINE_START,
+                  prevItem.startDate
+                );
+                const prevDuration =
+                  getMonthsDiff(prevItem.startDate, prevItem.endDate) + 1;
+                const prevEnd = prevStart + prevDuration;
+                const prevIsLeft = i % 2 === 0;
+
+                // 겹치는지 확인
+                const overlaps = !(
+                  endOffset <= prevStart || startOffset >= prevEnd
+                );
+
+                if (overlaps) {
+                  if (prevIsLeft) {
+                    leftOverlap = true;
+                  } else {
+                    rightOverlap = true;
+                  }
+                }
+              }
+
+              // 겹치지 않는 쪽 선택
+              let isLeft;
+              if (!leftOverlap && !rightOverlap) {
+                isLeft = index % 2 === 0; // 기본: 번갈아 배치
+              } else if (!leftOverlap) {
+                isLeft = true;
+              } else if (!rightOverlap) {
+                isLeft = false;
+              } else {
+                isLeft = index % 2 === 0; // 둘 다 겹치면 기본값
+              }
+
+              // 둘 다 겹치면 카드를 상단 또는 하단에 배치
+              // 우학동(id=4)은 항상 하단에 배치
+              const verticalAlign =
+                item.id === 4
+                  ? "justify-end pb-2"
+                  : leftOverlap && rightOverlap
+                  ? index % 4 < 2
+                    ? "justify-start pt-2"
+                    : "justify-end pb-2"
+                  : "justify-center";
 
               return (
                 <div
                   key={item.id}
-                  className="absolute group"
+                  className="absolute"
                   style={{
                     left: isLeft ? "0" : "50%",
                     right: isLeft ? "50%" : "0",
@@ -160,7 +207,7 @@ export const HistoryTimeline = () => {
                   }}
                 >
                   <div
-                    className={`relative h-full flex flex-col justify-center ${
+                    className={`relative h-full flex flex-col ${verticalAlign} ${
                       isLeft ? "items-end pr-3" : "items-start pl-3"
                     }`}
                   >
