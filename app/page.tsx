@@ -1,3 +1,4 @@
+import { HistoryTimeline } from "@/components/HistoryTimeline";
 import { TrackableLink } from "@/components/TrackableLink";
 import {
   Card,
@@ -29,6 +30,11 @@ const Home = async () => {
         <p className="text-xs sm:text-sm text-muted-foreground leading-loose">
           {HOME_DATA.hero.description}
         </p>
+      </section>
+
+      {/* History Timeline */}
+      <section className="mb-16 sm:mb-20 lg:mb-24">
+        <HistoryTimeline />
       </section>
 
       {/* Main Projects */}
