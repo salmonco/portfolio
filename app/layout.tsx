@@ -17,19 +17,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Jisu Bong",
-  description: "Jisu Bong's Personal Website",
+  description: "Invisible, but Valuable",
   openGraph: {
-    title: "Jisu Bong",
-    description: "Jisu Bong's Personal Website - Frontend Developer Portfolio",
+    title: "jisu-bong.com",
+    description: "Invisible, but Valuable",
     url: "https://jisu-bong.com",
     siteName: "Jisu Bong Portfolio",
     locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: "https://jisu-bong.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Jisu Bong - Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jisu Bong",
-    description: "Jisu Bong's Personal Website - Frontend Developer Portfolio",
+    title: "jisu-bong.com",
+    description: "Invisible, but Valuable",
+    images: ["https://jisu-bong.com/og-image.png"],
   },
 };
 
