@@ -109,6 +109,9 @@ const About = () => {
             </Badge>
           </TrackableLink>
         </div>
+        <p className="text-sm text-muted-foreground mt-4">
+          커피챗이 필요하시면 편하게 LinkedIn으로 연락주세요!
+        </p>
       </section>
     </main>
   );
