@@ -71,7 +71,7 @@ export function StartupProjectCard({
             {project.status}
           </Badge>
         </div>
-        <ProjectLinks links={project.links} />
+        <ProjectLinks links={project.links} projectTitle={project.title} />
         <CardDescription className="text-sm sm:text-base">
           {project.summary}
         </CardDescription>

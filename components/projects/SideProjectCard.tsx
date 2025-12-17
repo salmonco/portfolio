@@ -30,7 +30,7 @@ export function SideProjectCard({ project }: Props) {
             {project.status}
           </Badge>
         </div>
-        <ProjectLinks links={project.links} />
+        <ProjectLinks links={project.links} projectTitle={project.title} />
         <TechStackTags techStack={project.techStack} />
       </CardHeader>
       <CardContent className="space-y-3">
