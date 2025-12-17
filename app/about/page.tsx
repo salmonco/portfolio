@@ -109,9 +109,19 @@ const About = () => {
             </Badge>
           </TrackableLink>
         </div>
-        <p className="text-sm text-muted-foreground mt-4">
-          커피챗이 필요하시면 편하게 LinkedIn으로 연락주세요!
-        </p>
+        <TrackableLink
+          href={CONTACT_URL.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-1.5 text-base sm:text-lg text-muted-foreground hover:text-primary mt-4 transition-colors"
+          eventName="coffee_chat_click"
+          eventProperties={{ type: "linkedin" }}
+        >
+          <span className="group-hover:underline">커피챗 신청하기</span>
+          <span className="transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </TrackableLink>
       </section>
     </main>
   );
