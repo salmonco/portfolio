@@ -14,7 +14,7 @@ export const STARTUP_PROJECT: StartupProject[] = [
       "2024-2 AJOU SOFTCON 캡스톤디자인 개발부문 최우수상(1위)",
       "BM 경진대회 수상",
       "동아리 관리 시스템 특허 출원",
-      "랜딩페이지 사전등록 1명 유치",
+      "[사전등록 받는 중](https://www.woohakdong.com)",
     ],
     techStack: [
       "TypeScript",
@@ -101,11 +101,6 @@ export const STARTUP_PROJECT: StartupProject[] = [
         answer:
           "대학교 동아리 임원진입니다. 매년 반복되는 동아리 관리 업무를 자동화하여 효율성을 높이고자 하는 고객을 타깃으로 합니다.",
       },
-      {
-        question: "사전등록이 1명인데 괜찮나요?",
-        answer:
-          "극소수긴 하지만 MVP를 보여주기 전까지는 판단하기 어렵다고 생각합니다. 사전등록을 만든 이유는 고객과의 마찰을 통해 니즈를 검증하기 위함입니다.",
-      },
     ],
   },
   {
@@ -117,7 +112,7 @@ export const STARTUP_PROJECT: StartupProject[] = [
     },
     status: "MVP 개발 완료",
     summary: "알바생을 위한 레시피 암기 앱",
-    achievements: ["출시 후 15명의 사용자 유치"],
+    achievements: ["출시 후 28명의 사용자 유치", "7일차 리텐션 8% 기록"],
     techStack: [
       "TypeScript",
       "React Native",

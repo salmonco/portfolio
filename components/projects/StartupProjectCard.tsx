@@ -78,9 +78,25 @@ export function StartupProjectCard({
         {project.achievements.length > 0 && (
           <div className="mt-2">
             <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-muted-foreground">
-              {project.achievements.map((achievement, idx) => (
-                <li key={idx}>{achievement}</li>
-              ))}
+              {project.achievements.map((achievement, idx) => {
+                const linkMatch = achievement.match(/\[(.+?)\]\((.+?)\)/);
+                if (linkMatch) {
+                  const [, text, url] = linkMatch;
+                  return (
+                    <li key={idx}>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary underline hover:opacity-70"
+                      >
+                        {text}
+                      </a>
+                    </li>
+                  );
+                }
+                return <li key={idx}>{achievement}</li>;
+              })}
             </ul>
           </div>
         )}
